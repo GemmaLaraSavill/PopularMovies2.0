@@ -2,7 +2,7 @@
 
 :gear: **_work in progress_** 
 
-Please note that this is not a commercial app, this code is shared here for learning and technology demonstration purposes only.
+:point_right: Please note that this is not a commercial app, this code is shared here for learning and technology demonstration purposes only.
 
 New version of my Android app that shows you popular movies using themoviedb.org API.
 
@@ -26,3 +26,15 @@ Main changes from the 2016 version:
 
 Screenshot of one the Composables in the app in Android Studio Preview mode:
 ![Preview of Movie detail screen body](./github/movie-detail-screen-UI-compose-preview.png)
+
+
+## Installation
+
+1. Clone the code and import it as a project into [Android Studio](https://developer.android.com/studio)
+
+2. Go to the [themoviedb.org](http://themoviedb.org) and request an API key. 
+
+3. Once you have it open
+_/app/src/main/java/com/gemma/popularmovies/data/network/ApiConstants.kt_ 
+file and add your own API key in line 32
+`const val API_KEY = ""`
