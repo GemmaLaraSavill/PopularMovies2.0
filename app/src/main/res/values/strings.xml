@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Popular Movies</string>
+
+    <!-- Movie Lists-->
+    <string name="noMoviesFound">No movies found, please check internet connection.</string>
+    <string name="noFavMoviesFound">No favorite movies found.\n\nYou can add movies to your favorites list by clicking on the Favorite Icon</string>
+
+    <string name="sortBy">Sort movies by</string>
+    <string name="sortByPopular">Most popular</string>
+    <string name="sortByFavorites">Favorite movies</string>
+
+    <!--  Movie Detail Screen-->
+    <string name="viewVideo">View video</string>
+    <string name="trailer">Trailer</string>
+
+</resources>

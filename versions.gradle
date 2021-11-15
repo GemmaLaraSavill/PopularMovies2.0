@@ -1,0 +1,9 @@
+ext {
+    androidxExtensions = '2.2.0'
+    androidxLifecycle = '2.4.0'
+    retrofit = '2.9.0'
+    hilt_version = '2.38.1'
+    room_version = '2.3.0'
+    compose_version = '1.0.5'
+    junitVersion = '4.13'
+}
