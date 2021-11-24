@@ -1,5 +1,6 @@
 package com.gemma.popularmovies.data.network
 
+import android.content.Context
 import android.util.Log
 import com.gemma.popularmovies.data.MovieDataSource
 import com.gemma.popularmovies.data.network.model.TrailerDto
@@ -14,16 +15,11 @@ import javax.inject.Inject
 /**
  * Manages data in and out the API
  */
-class MovieNetworkDataSource @Inject constructor(private val moviesApiService: MoviesApiService) :
-    MovieDataSource {
+class MovieNetworkDataSource @Inject constructor(private val moviesApiService: MoviesApiService, private val context: Context) : MovieDataSource {
 
     override suspend fun getPopularMovies(): Flow<List<Movie>> {
-        var movies: List<Movie> = moviesApiService.getPopularMovies(1).movieList.map {
-            it.toDomain()
-        }
-        return flow {
-            emit(movies)
-        }
+        // Not required for the remote data source
+        return emptyFlow()
     }
 
     override fun getFavoriteMovies(): Flow<List<Movie>> {
@@ -31,7 +27,7 @@ class MovieNetworkDataSource @Inject constructor(private val moviesApiService: M
         return emptyFlow()
     }
 
-    override suspend fun insertFreshPopularMovies(popularMoviesToDb: List<Movie>) {
+    override suspend fun insertFreshPopularMovies(popularMovies: List<Movie>) {
         // Not required for the remote data source
     }
 
@@ -39,15 +35,23 @@ class MovieNetworkDataSource @Inject constructor(private val moviesApiService: M
      * Load 1 page of most popular movies from the API
      */
     override suspend fun getFreshPopularMovies(): List<Movie> {
-        var popularMovies: List<Movie> = moviesApiService.getPopularMovies(1).movieList.map {
-            it.toDomain()
+        return if (NetworkConnectivityManager.isNetworkConnected(context)) {
+            var popularMovies: List<Movie> = moviesApiService.getPopularMovies(1).movieList.map {
+                it.toDomain()
+            }
+            popularMovies
+        } else {
+            emptyList()
         }
-        return popularMovies
     }
 
     override suspend fun getMovieById(movieId: Int): Flow<Movie?> {
-        var movieData = moviesApiService.getFullMovieData(movieId)
-        return flow { emit(movieData.toDomain()) }
+        return if (NetworkConnectivityManager.isNetworkConnected(context)) {
+            var movieData = moviesApiService.getFullMovieData(movieId)
+            flow { emit(movieData.toDomain()) }
+        } else {
+            emptyFlow()
+        }
     }
 
 
@@ -66,19 +70,23 @@ class MovieNetworkDataSource @Inject constructor(private val moviesApiService: M
      * And it must be official
      */
     override suspend fun getTrailer(movieId: Int): Flow<Trailer?> {
-        val videosPage: TrailersPageDto =  moviesApiService.getVideos(movieId)
-        val videos = videosPage.videoList
-        val trailer: List<TrailerDto> = videos.filter {
-            it.type === "Trailer"
-            it.site === "YouTube"
-            it.official
-        }.sortedBy { it.date }
-        return if (trailer.count() > 0) {
-            flow {
-                emit(trailer.first().toDomain())
+        if (NetworkConnectivityManager.isNetworkConnected(context)) {
+            val videosPage: TrailersPageDto = moviesApiService.getVideos(movieId)
+            val videos = videosPage.videoList
+            val trailer: List<TrailerDto> = videos.filter {
+                it.type == "Trailer"
+                it.site == "YouTube"
+                it.official
+            }.sortedBy { it.date }
+            return if (trailer.count() > 0) {
+                flow {
+                    emit(trailer.first().toDomain())
+                }
+            } else {
+                emptyFlow()
             }
         } else {
-            emptyFlow()
+            return emptyFlow()
         }
     }
 

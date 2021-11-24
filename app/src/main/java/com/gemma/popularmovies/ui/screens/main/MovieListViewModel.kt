@@ -37,11 +37,16 @@ class MovieListViewModel @Inject constructor(private val getMovieListUseCase: Ge
      * Gets favorite movie list
      */
     private fun loadFavoriteMovies(): Flow<List<Movie>> {
-        var favMovieListFromRepo: Flow<List<Movie>> = emptyFlow()
         viewModelScope.launch {
             favoriteMovieList = getMovieListUseCase.getFavoriteMovies()
         }
         return favoriteMovieList
+    }
+
+    fun reloadMovies() {
+        viewModelScope.launch {
+            getMovieListUseCase.reloadMovies()
+        }
     }
 }
 

@@ -15,4 +15,8 @@ class GetMovieListUseCase @Inject constructor(private val popularMoviesRepositor
         return popularMoviesRepository.getFavoriteMovies()
     }
 
+    suspend fun reloadMovies() {
+        popularMoviesRepository.reloadMovies()
+    }
+
 }

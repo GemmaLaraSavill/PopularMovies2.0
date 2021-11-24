@@ -86,4 +86,9 @@ class MoviesRepositoryImpl @Inject constructor(
         movieLocalDataSource.insertFreshPopularMovies(popularMovies)
     }
 
+    override suspend fun reloadMovies() {
+        // get fresh movies from network data source
+        insertFreshPopularMoviesToCache()
+    }
+
 }

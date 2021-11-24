@@ -14,6 +14,7 @@ interface MoviesRepository {
     suspend fun getFavoriteMovies(): Flow<List<Movie>>
     suspend fun getMovieById(movieId: Int): Flow<Movie?>
     suspend fun toggleFavorite(movieId: Int)
+    suspend fun reloadMovies()
 }
 
 @Module

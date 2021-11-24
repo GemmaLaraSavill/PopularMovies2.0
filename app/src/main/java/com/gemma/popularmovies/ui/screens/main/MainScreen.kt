@@ -28,6 +28,7 @@ import coil.compose.rememberImagePainter
 import coil.size.OriginalSize
 import com.gemma.popularmovies.R
 import com.gemma.popularmovies.domain.model.Movie
+import com.gemma.popularmovies.ui.composables.EmptyListWarning
 import com.gemma.popularmovies.ui.composables.MovieRating
 import com.gemma.popularmovies.ui.composables.ReleaseDate
 import com.gemma.popularmovies.ui.screens.MovieAppScreen
@@ -69,7 +70,8 @@ fun MainScreen(navController: NavController, viewModel: MovieListViewModel) {
             listDisplayed,
             movieList,
             favMovieList,
-            navController
+            navController,
+            reload = { viewModel.reloadMovies() }
         )
     }
 }
@@ -121,16 +123,28 @@ fun BodyContent(
     listDisplayed: ListType,
     moviePosterList: List<Movie>,
     favoriteMovieList: List<Movie>,
-    navController: NavController
+    navController: NavController,
+    reload: () -> Unit
 ) {
     Box(modifier = modifier
         .background(MaterialTheme.colors.background)
         .fillMaxHeight()) {
         if (listDisplayed == ListType.Popular) {
-            PosterGrid(
-                moviePosterList,
-                onPosterClick = { navController.navigate(MovieAppScreen.DetailScreen.withArgs(it)) }
-            )
+            if (moviePosterList.isEmpty()) {
+                EmptyListWarning(
+                    modifier
+                        .fillMaxSize()
+                        .padding(32.dp)
+                        .align(Alignment.Center),
+                    message = stringResource(R.string.noMoviesFound),
+                    actionText = stringResource(R.string.tryAgain),
+                    onButtonClick = { reload() })
+            } else {
+                PosterGrid(
+                    moviePosterList,
+                    onPosterClick = { navController.navigate(MovieAppScreen.DetailScreen.withArgs(it)) }
+                )
+            }
         } else {
             Box(
                 modifier = Modifier.padding(4.dp)

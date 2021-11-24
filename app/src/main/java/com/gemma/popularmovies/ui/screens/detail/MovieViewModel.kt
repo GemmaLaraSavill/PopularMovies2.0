@@ -47,7 +47,7 @@ class MovieViewModel @Inject constructor(private val getMovieUseCase: GetMovieDe
         }
         movie.map {
             if (it?.favorite == 0) {
-                it?.favorite = 1
+                it.favorite = 1
             } else {
                 it?.favorite = 0
             }

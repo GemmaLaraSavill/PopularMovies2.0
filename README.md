@@ -22,7 +22,7 @@ Main changes from the 2016 version:
 - now using dependency injection with Hilt
 - MVVM architecture
 - Tests using AndroidJUnit4 and Okhttp3 MockWebServer
-- Working on more features, comming soon...
+- Working on more features, coming soon...
 
 Screenshot of one the Composables in the app in Android Studio Preview mode:
 ![Preview of Movie detail screen body](./github/movie-detail-screen-UI-compose-preview.png)
