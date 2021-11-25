@@ -1,11 +1,11 @@
 package com.gemma.popularmovies.data.network
 
 import android.content.Context
-import android.util.Log
 import com.gemma.popularmovies.data.MovieDataSource
 import com.gemma.popularmovies.data.network.model.TrailerDto
 import com.gemma.popularmovies.data.network.model.TrailersPageDto
 import com.gemma.popularmovies.domain.model.Movie
+import com.gemma.popularmovies.domain.model.Role
 import com.gemma.popularmovies.domain.model.Trailer
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow
@@ -91,6 +91,29 @@ class MovieNetworkDataSource @Inject constructor(private val moviesApiService: M
     }
 
     override suspend fun insertTrailer(movieId:Int, trailer: Trailer?) {
+        // Not required for the remote data source
+    }
+
+    /**
+     * Load 10 artist roles for this movie from the API
+     */
+    override suspend fun getFreshMovieCast(movieId: Int): List<Role?> {
+        if (NetworkConnectivityManager.isNetworkConnected(context)) {
+            val cast = moviesApiService.getCredits(movieId).roleList.take(10).map {
+                it.toDomain(movieId)
+            }
+            return cast
+        } else {
+            return emptyList()
+        }
+    }
+
+    override suspend fun getMovieCast(movieId: Int): Flow<List<Role?>> {
+        // Not required for the remote data source
+        return emptyFlow()
+    }
+
+    override suspend fun insertCast(roleList: List<Role?>) {
         // Not required for the remote data source
     }
 

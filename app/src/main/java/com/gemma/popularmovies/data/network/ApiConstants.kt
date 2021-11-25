@@ -10,7 +10,7 @@ object ApiConstants {
     const val MOVIE = "movie/{movie_id}"
 
     // Get the most newly created movie. This is a live response and will continuously change.
-    const val GET_LATEST = "/movie/latest"
+    const val GET_LATEST = "movie/latest"
 
     // Discover movies by different types of data like average rating or number of votes
     const val DISCOVER_MOVIES = "discover/movie"
@@ -20,10 +20,10 @@ object ApiConstants {
 
     // Powered by our partnership with JustWatch, you can query this method to get a list of the availabilities per country by provider.
     // TODO Please note: In order to use this data you must attribute the source of the data as JustWatch. If we find any usage not complying with these terms we will revoke access to the API.
-    const val PROVIDERS = "/movie/{movie_id}/watch/providers"
+    const val PROVIDERS = "movie/{movie_id}/watch/providers"
 
     // Get the cast and crew for a movie.
-    const val CREDITS = "/movie/{movie_id}/credits"
+    const val CREDITS = "movie/{movie_id}/credits"
 
     // must be added in every call
     const val API_PARAM = "api_key"

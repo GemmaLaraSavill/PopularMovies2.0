@@ -2,6 +2,7 @@ package com.gemma.popularmovies.data.cache
 
 import android.content.Context
 import androidx.room.Room
+import com.gemma.popularmovies.data.cache.daos.CastDao
 import com.gemma.popularmovies.data.cache.daos.MovieDao
 import dagger.Module
 import dagger.Provides
@@ -24,5 +25,12 @@ class DatabaseModule {
     @Provides
     fun provideMovieDao(movieDatabase: MovieDatabase): MovieDao {
         return movieDatabase.movieDao()
+    }
+
+
+    @Singleton
+    @Provides
+    fun provideCastDao(movieDatabase: MovieDatabase): CastDao {
+        return movieDatabase.castDao()
     }
 }

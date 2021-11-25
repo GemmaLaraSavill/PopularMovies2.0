@@ -1,5 +1,6 @@
 package com.gemma.popularmovies.data.network
 
+import com.gemma.popularmovies.data.network.model.CastDto
 import com.gemma.popularmovies.data.network.model.MovieDto
 import com.gemma.popularmovies.data.network.model.MoviesPageDto
 import com.gemma.popularmovies.data.network.model.TrailersPageDto
@@ -21,5 +22,8 @@ interface MoviesApiService {
 
     @GET(ApiConstants.VIDEOS)
     suspend fun getVideos(@Path("id") movieId: Int): TrailersPageDto
+
+    @GET(ApiConstants.CREDITS)
+    suspend fun getCredits(@Path("id") movieId: Int): CastDto
 
 }

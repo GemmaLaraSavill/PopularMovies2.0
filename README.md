@@ -27,6 +27,9 @@ Main changes from the 2016 version:
 Screenshot of one the Composables in the app in Android Studio Preview mode:
 ![Preview of Movie detail screen body](./github/movie-detail-screen-UI-compose-preview.png)
 
+Preview video of the detail screen of the app, now showing movie cast:
+
+<video src='./github/app-preview-video.webm' width=320/>
 
 ## Installation
 

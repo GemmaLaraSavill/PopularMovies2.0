@@ -2,6 +2,7 @@ package com.gemma.popularmovies.domain.repository
 
 import com.gemma.popularmovies.data.MoviesRepositoryImpl
 import com.gemma.popularmovies.domain.model.Movie
+import com.gemma.popularmovies.domain.model.Role
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -15,6 +16,7 @@ interface MoviesRepository {
     suspend fun getMovieById(movieId: Int): Flow<Movie?>
     suspend fun toggleFavorite(movieId: Int)
     suspend fun reloadMovies()
+    suspend fun getMovieCast(movieId: Int): Flow<List<Role?>>
 }
 
 @Module

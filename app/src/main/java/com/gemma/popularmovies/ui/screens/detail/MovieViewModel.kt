@@ -3,6 +3,7 @@ package com.gemma.popularmovies.ui.screens.detail
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.gemma.popularmovies.domain.model.Movie
+import com.gemma.popularmovies.domain.model.Role
 import com.gemma.popularmovies.domain.usecase.GetMovieDetailUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
@@ -17,9 +18,11 @@ class MovieViewModel @Inject constructor(private val getMovieUseCase: GetMovieDe
     ViewModel() {
 
     var movie: Flow<Movie?> = emptyFlow()
+    var cast: Flow<List<Role?>>
 
     init {
         movie = getMovieById(null)
+        cast = getCast(null)
     }
 
     /**
@@ -52,6 +55,15 @@ class MovieViewModel @Inject constructor(private val getMovieUseCase: GetMovieDe
                 it?.favorite = 0
             }
         }
+    }
+
+    fun getCast(movieId: Int?): Flow<List<Role?>> {
+        if (movieId != null) {
+            viewModelScope.launch {
+                cast = getMovieUseCase.getMovieCast(movieId)
+            }
+        }
+        return cast
     }
 }
 

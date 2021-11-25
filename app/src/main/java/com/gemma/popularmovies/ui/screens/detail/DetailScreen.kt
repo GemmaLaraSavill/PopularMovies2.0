@@ -2,10 +2,13 @@ package com.gemma.popularmovies.ui.screens.detail
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
@@ -19,6 +22,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -26,10 +30,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import coil.compose.ImagePainter
 import coil.compose.rememberImagePainter
 import coil.size.OriginalSize
 import com.gemma.popularmovies.R
 import com.gemma.popularmovies.domain.model.Movie
+import com.gemma.popularmovies.domain.model.Role
 import com.gemma.popularmovies.domain.model.Trailer
 import com.gemma.popularmovies.ui.composables.LoadingIndicator
 import com.gemma.popularmovies.ui.composables.MovieRating
@@ -44,6 +50,9 @@ fun DetailScreen(movieId: Int?, navController: NavController, viewModel: MovieVi
     viewModel.getMovieById(movieId)
     val movie: Movie? by viewModel.movie.collectAsState(null)
 
+    viewModel.getCast(movieId)
+    val cast: List<Role?> by viewModel.cast.collectAsState(initial = emptyList())
+
     val scaffoldState = rememberScaffoldState()
     val snackbarCoroutineScope = rememberCoroutineScope()
 
@@ -57,13 +66,13 @@ fun DetailScreen(movieId: Int?, navController: NavController, viewModel: MovieVi
                 snackbarCoroutineScope
             )
         }) { innerPadding ->
-        DetailScreenBody(Modifier.padding(innerPadding), movie)
+        DetailScreenBody(Modifier.padding(innerPadding), movie, cast)
     }
 }
 
 
 @Composable
-fun DetailScreenBody(modifier: Modifier, movie: Movie?) {
+fun DetailScreenBody(modifier: Modifier, movie: Movie?, cast: List<Role?>) {
     val scrollState = rememberScrollState()
     PopularMoviesTheme {
         if (movie == null) {
@@ -80,6 +89,9 @@ fun DetailScreenBody(modifier: Modifier, movie: Movie?) {
                 )
                 if (movie.trailer !== null) {
                     Trailer(movie.trailer!!, movie.poster)
+                }
+                if (cast.isNotEmpty()) {
+                    CastList(cast)
                 }
             }
         }
@@ -155,11 +167,63 @@ fun openYouTubeVideo(trailer: Trailer, context: Context) {
     context.startActivity(intent)
 }
 
-@Preview
 @Composable
-fun PreviewTrailer() {
-    PopularMoviesTheme {
-        Trailer(testTrailer, testMovie.poster)
+fun CastList(cast: List<Role?>) {
+    Column() {
+        Text(
+            stringResource(id = R.string.cast),
+            Modifier.padding(top = 16.dp, bottom = 8.dp, start = 16.dp),
+            style = MaterialTheme.typography.h2
+        )
+        LazyRow(Modifier.padding(start = 16.dp, top = 8.dp, bottom = 16.dp)) {
+            items(cast) { role ->
+                if (role != null) {
+                    CharacterBadge(role)
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun CharacterBadge(role: Role) {
+    Card(
+        Modifier
+            .fillMaxWidth()
+            .padding(end = 16.dp), elevation = 10.dp
+    ) {
+        Column(Modifier.padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+            Box(
+                modifier = Modifier
+                    .size(154.dp)
+                    .clip(CircleShape)
+            ) {
+                val painter = rememberImagePainter(data = role.image_path)
+                Image(
+                    painter = painter,
+                    contentDescription = role.name,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                )
+                if (painter.state !is ImagePainter.State.Success) {
+                    Icon(
+                        Icons.Default.Face,
+                        stringResource(R.string.cast),
+                        modifier = Modifier
+                            .size(120.dp)
+                            .align(Alignment.Center),
+                        tint = Color.Black.copy(alpha = 0.2F)
+                    )
+                }
+            }
+            Text(
+                role.name.toString(),
+                Modifier.padding(top = 16.dp),
+                style = MaterialTheme.typography.subtitle1
+            )
+            Text(role.character.toString(), style = MaterialTheme.typography.subtitle2)
+        }
     }
 }
 
@@ -217,14 +281,13 @@ fun TitleRow(movie: Movie?) {
 }
 
 @Preview(
-    "Detail Screen Body",
-//    showSystemUi = true,
-//    uiMode = UI_MODE_NIGHT_YES
+    "Movie Detail Screen Preview",
+    heightDp = 1080
 )
 @Composable
 private fun PreviewDetailScreenBody() {
-    PopularMoviesTheme {
-        DetailScreenBody(Modifier.padding(8.dp), testMovie)
+    PopularMoviesTheme() {
+        DetailScreenBody(Modifier.padding(8.dp), testMovie, testCastList)
     }
 }
 
@@ -286,4 +349,49 @@ val testMovie = Movie(
     "2021-09-01",
     0,
     testTrailer
+)
+
+val testCastList = listOf<Role>(
+    Role(
+        1337,
+        566525,
+        "Tony Leung Chiu-wai",
+        "https://image.tmdb.org/t/p/w154/nQbSQAws5BdakPEB5MtiqWVeaMV.jpg",
+        "Xu Wenwu"
+    ),
+    Role(
+        1625558,
+        566525,
+        "Awkwafina",
+        "https://image.tmdb.org/t/p/w154/l5AKkg3H1QhMuXmTTmq1EyjyiRb.jpg",
+        "Katy Chen"
+    ),
+    Role(
+        2979464,
+        566525,
+        "Meng'er Zhang",
+        "https://image.tmdb.org/t/p/w154/yMiYThzzkeVSsUI2sxh3iIWmMTy.jpg",
+        "Xu Xialing"
+    ),
+    Role(
+        123701,
+        566525,
+        "Fala Chen",
+        "https://image.tmdb.org/t/p/w154/1eoEj3umXbxUkTXb5c7bmC3EUTh.jpg",
+        "Ying Li"
+    ),
+    Role(
+        1620,
+        566525,
+        "Michelle Yeoh",
+        "https://image.tmdb.org/t/p/w154/wPI2wn6WJEtJr1oAMTLBLh92Ryc.jpg",
+        "Ying Nan"
+    ),
+    Role(
+        57609,
+        566525,
+        "Yuen Wah",
+        "https://image.tmdb.org/t/p/w154/yMkMgs0tWlJXdTjYkiMcjvhYnRw.jpg",
+        "Master Guang Bo"
+    )
 )

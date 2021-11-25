@@ -22,6 +22,11 @@ val typography = Typography(
         fontWeight = FontWeight.Normal,
         fontSize = 22.sp
     ),
+    h4 = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Bold,
+        fontSize = 20.sp
+    ),
     body1 = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,

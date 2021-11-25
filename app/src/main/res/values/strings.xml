@@ -13,5 +13,6 @@
     <!--  Movie Detail Screen-->
     <string name="viewVideo">View video</string>
     <string name="trailer">Trailer</string>
+    <string name="cast">Cast</string>
 
 </resources>
