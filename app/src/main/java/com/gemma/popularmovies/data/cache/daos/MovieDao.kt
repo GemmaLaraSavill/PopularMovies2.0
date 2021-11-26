@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface MovieDao {
 
-    @Query("SELECT movies.movie_id, poster, favorite FROM movies")
+    @Query("SELECT movies.movie_id, title, poster, favorite FROM movies")
     fun getMostPopularMovies(): Flow<List<CachedMovieMinimal>>
 
     @Query("SELECT * FROM movies WHERE favorite=1 ORDER BY title ASC")

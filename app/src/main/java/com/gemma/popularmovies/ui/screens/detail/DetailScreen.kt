@@ -229,19 +229,38 @@ fun CharacterBadge(role: Role) {
 
 @Composable
 fun BackDrop(movie: Movie?) {
+    val backDropPainter = rememberImagePainter(data = movie?.backdrop, builder = {size(OriginalSize)})
     Image(
-        painter = rememberImagePainter(
-            data = movie?.backdrop,
-            builder = {
-                size(OriginalSize)
-                placeholder(R.drawable.test_backdrop)
-            },
-        ),
-        contentDescription = null,
+        painter = backDropPainter,
+        contentDescription = movie?.title,
         contentScale = ContentScale.Crop,
         modifier = Modifier
             .fillMaxWidth()
     )
+    var imageState = backDropPainter.state
+    if (imageState is ImagePainter.State.Loading) {
+        Box(
+            Modifier
+                .height(280.dp)
+                .fillMaxWidth(), Alignment.Center) {
+            LoadingIndicator()
+        }
+    }
+    if (imageState is ImagePainter.State.Error) {
+        Box(
+            Modifier
+                .height(280.dp)
+                .fillMaxWidth(), Alignment.Center) {
+            Icon(
+                Icons.Default.MovieCreation,
+                movie?.title,
+                modifier = Modifier
+                    .size(120.dp)
+                    .align(Alignment.Center),
+                tint = Color.Black.copy(alpha = 0.2F)
+            )
+        }
+    }
 }
 
 @Composable

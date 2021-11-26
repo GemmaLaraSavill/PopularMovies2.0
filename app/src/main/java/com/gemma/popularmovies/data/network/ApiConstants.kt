@@ -23,7 +23,7 @@ object ApiConstants {
     const val PROVIDERS = "movie/{movie_id}/watch/providers"
 
     // Get the cast and crew for a movie.
-    const val CREDITS = "movie/{movie_id}/credits"
+    const val CREDITS = "movie/{id}/credits"
 
     // must be added in every call
     const val API_PARAM = "api_key"

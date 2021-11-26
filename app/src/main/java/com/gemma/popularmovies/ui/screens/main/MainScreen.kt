@@ -1,9 +1,6 @@
 package com.gemma.popularmovies.ui.screens.main
 
-import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyColumn
@@ -11,24 +8,24 @@ import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.Movie
-import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.annotation.ExperimentalCoilApi
+import coil.compose.ImagePainter
 import coil.compose.rememberImagePainter
 import coil.size.OriginalSize
 import com.gemma.popularmovies.R
 import com.gemma.popularmovies.domain.model.Movie
 import com.gemma.popularmovies.ui.composables.EmptyListWarning
+import com.gemma.popularmovies.ui.composables.LoadingIndicator
 import com.gemma.popularmovies.ui.composables.MovieRating
 import com.gemma.popularmovies.ui.composables.ReleaseDate
 import com.gemma.popularmovies.ui.screens.MovieAppScreen
@@ -166,26 +163,20 @@ fun PosterGrid(movies: List<Movie>, onPosterClick: (Int) -> Unit) {
         cells = GridCells.Fixed(2)
     ) {
         items(items = movies) { movie ->
-            PosterItem(movie.poster!!, movie.movie_id, onPosterClick)
+            PosterItem(movie.poster!!, movie.title, movie.movie_id, onPosterClick)
         }
     }
 }
 
 @ExperimentalCoilApi
 @Composable
-fun PosterItem(poster: String, movie_id: Int, onPosterClick: (Int) -> Unit) {
+fun PosterItem(poster: String?, title: String?, movie_id: Int, onPosterClick: (Int) -> Unit) {
+    val posterPainter = rememberImagePainter(
+        data = poster,
+        builder = { size(OriginalSize) })
     Image(
-        painter = rememberImagePainter(
-            data = poster,
-            builder = {
-                size(OriginalSize)
-                // shows while loading.
-                placeholder(R.drawable.poster_loading)
-                // shown when the request failed.
-                error(R.drawable.poster_error)
-            },
-        ),
-        contentDescription = null,
+        painter = posterPainter,
+        contentDescription = title,
         contentScale = ContentScale.Crop,
         modifier = Modifier
             .fillMaxWidth()
@@ -193,6 +184,45 @@ fun PosterItem(poster: String, movie_id: Int, onPosterClick: (Int) -> Unit) {
                 onPosterClick(movie_id)
             })
     )
+    var imageState = posterPainter.state
+    if (imageState is ImagePainter.State.Loading) {
+        Box(
+            Modifier
+                .height(278.dp)
+                .width(185.dp),
+            Alignment.Center
+        ) {
+            LoadingIndicator()
+        }
+    }
+    if (imageState is ImagePainter.State.Error) {
+        Box(
+            Modifier
+                .height(278.dp)
+                .width(185.dp)
+                .border(1.dp, MaterialTheme.colors.secondary.copy(alpha = 0.1F)
+                ),
+            Alignment.Center
+        ) {
+            Icon(
+                Icons.Default.MovieCreation,
+                title,
+                modifier = Modifier
+                    .size(120.dp)
+                    .align(Alignment.Center),
+                tint = Color.Black.copy(alpha = 0.2F)
+            )
+            if (title != null) {
+                Text(
+                    title,
+                    Modifier
+                        .align(Alignment.BottomCenter)
+                        .padding(bottom = 8.dp, start = 16.dp, end = 16.dp),
+                    style = MaterialTheme.typography.body1
+                )
+            }
+        }
+    }
 }
 
 @ExperimentalMaterialApi
