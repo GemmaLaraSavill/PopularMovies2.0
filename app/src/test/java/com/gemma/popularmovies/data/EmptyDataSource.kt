@@ -1,12 +1,15 @@
 package com.gemma.popularmovies.data
 
 import com.gemma.popularmovies.domain.model.Movie
+import com.gemma.popularmovies.domain.model.Role
 import com.gemma.popularmovies.domain.model.Trailer
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flow
 
 class EmptyDataSource: MovieDataSource {
 
+    private var fakeData = FakeData()
     val fakeMovieList = mutableListOf<Movie>()
 
     override suspend fun getPopularMovies(): Flow<List<Movie>> {
@@ -16,35 +19,48 @@ class EmptyDataSource: MovieDataSource {
     }
 
     override fun getFavoriteMovies(): Flow<List<Movie>> {
-        TODO("Not yet implemented")
+        return emptyFlow()
     }
 
     override suspend fun insertFreshPopularMovies(popularMovies: List<Movie>) {
-        fakeMovieList.addAll(popularMovies)
+        // simulates getting data from network
+        fakeMovieList.addAll(fakeData.getMovieList())
     }
 
     override suspend fun getFreshPopularMovies(): List<Movie> {
-        TODO("Not yet implemented")
+        return emptyList()
     }
 
     override suspend fun getMovieById(movieId: Int): Flow<Movie?> {
-        TODO("Not yet implemented")
+        return emptyFlow()
     }
 
     override suspend fun insertMovie(fullMovieData: Flow<Movie?>) {
-        TODO("Not yet implemented")
+        // not necessary as it is an empty data source
     }
 
     override suspend fun toggleFavorite(movieId: Int) {
-        TODO("Not yet implemented")
+        // not necessary as it is an empty data source
     }
 
     override suspend fun getTrailer(movieId: Int): Flow<Trailer?> {
-        TODO("Not yet implemented")
+        return emptyFlow()
     }
 
     override suspend fun insertTrailer(movieId: Int, trailer: Trailer?) {
-        TODO("Not yet implemented")
+        // not necessary as it is an empty data source
+    }
+
+    override suspend fun getFreshMovieCast(movieId: Int): List<Role?> {
+        return emptyList()
+    }
+
+    override suspend fun getMovieCast(movieId: Int): Flow<List<Role?>> {
+        return emptyFlow()
+    }
+
+    override suspend fun insertCast(roleList: List<Role?>) {
+        // not necessary as it is an empty data source
     }
 
 

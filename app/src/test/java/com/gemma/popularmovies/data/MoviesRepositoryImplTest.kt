@@ -1,6 +1,7 @@
 package com.gemma.popularmovies.data
 
 import com.gemma.popularmovies.domain.model.Movie
+import com.gemma.popularmovies.domain.model.Role
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
@@ -99,6 +100,28 @@ class MoviesRepositoryImplTest {
             var movieFlow: Flow<Movie?> = moviesRepository.getMovieById(movieId)
             assertEquals(1, movieFlow.first()?.favorite)
         }
+    }
+
+    @Test
+    fun getMovieCast_returnsCast() = runBlocking {
+        // Before: get the movie from the repository
+        val movieId: Int = 512195
+        var movieCastFlow: Flow<List<Role?>> = moviesRepository.getMovieCast(movieId)
+        // check that the correct roles are received
+        assertEquals("Ryan Reynolds", movieCastFlow.first().first()?.name)
+        assertEquals("Nolan Booth", movieCastFlow.first().first()?.character)
+    }
+
+    @Test
+    fun getMovieCastOnEmptyMovie_returnsCastFromNetwork() = runBlocking {
+        // Before: get cast for a movie that doesn't have it's cast local cache
+        val movieId: Int = 566525 // id of Shang-Chi and the Legend of the Ten Rings
+        var movieCastFlow: Flow<List<Role?>> = moviesRepository.getMovieCast(movieId)
+        // check that the repository has collected the movie from the network
+        // has been added to the local data cache and returned
+        assertEquals(3, movieCastFlow.first().count())
+        assertEquals("Simu Liu", movieCastFlow.first().first()?.name)
+        assertEquals("Shaun / Shang-Chi", movieCastFlow.first().first()?.character)
     }
 
 

@@ -106,5 +106,26 @@ class PopularMovieApiTestUsingMockServer {
         }
     }
 
+    // CAST
+    private val testCreditsJson = getJson("credits.json")
+
+    @Test
+    fun mockWebserver_EmitsCast() {
+        mockWebServer.enqueue(
+            MockResponse()
+                .setBody(testCreditsJson)
+                .setResponseCode(200)
+        )
+
+        runBlocking {
+            var creditsResult = popularMovieService.getCredits(testMovieId)
+            assertEquals(1245, creditsResult.roleList.get(0).artist_id)
+            assertEquals("Natasha Romanoff / Black Widow", creditsResult.roleList[0].character)
+            assertEquals("Scarlett Johansson", creditsResult.roleList[0].name)
+            assertEquals("/mODcczqQyKuphfFAoBZGhxgnNfs.jpg", creditsResult.roleList[0].image)
+        }
+    }
+
+
 }
 

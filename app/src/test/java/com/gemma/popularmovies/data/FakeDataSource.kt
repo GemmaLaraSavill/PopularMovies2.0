@@ -1,6 +1,7 @@
 package com.gemma.popularmovies.data
 
 import com.gemma.popularmovies.domain.model.Movie
+import com.gemma.popularmovies.domain.model.Role
 import com.gemma.popularmovies.domain.model.Trailer
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
@@ -27,7 +28,7 @@ class FakeDataSource : MovieDataSource {
     }
 
     override suspend fun insertFreshPopularMovies(popularMovies: List<Movie>) {
-        TODO("Not yet implemented")
+        // not necessary for testing
     }
 
     override suspend fun getFreshPopularMovies(): List<Movie> {
@@ -59,7 +60,8 @@ class FakeDataSource : MovieDataSource {
     }
 
     override suspend fun insertMovie(fullMovieData: Flow<Movie?>) {
-        TODO("Not yet implemented")
+        // simulates getting data from network
+        fakeData.getMovieList().add(fakeData.getMovieById())
     }
 
     override suspend fun toggleFavorite(movieId: Int) {
@@ -80,6 +82,61 @@ class FakeDataSource : MovieDataSource {
     }
 
     override suspend fun insertTrailer(movieId: Int, trailer: Trailer?) {
+        // not necessary for testing
+    }
+
+    override suspend fun getFreshMovieCast(movieId: Int): List<Role?> {
+        // cast for 566525 = Shang-Chi and the Legend of the Ten Rings
+        val ShangChiCastList = listOf<Role>(
+            Role(
+                1489211,
+                566525,
+                "Simu Liu",
+                "https://image.tmdb.org/t/p/w154/zrJjYjOYzDj7eY9oiHAoz8Yh0yk.jpg",
+                "Shaun / Shang-Chi"
+            ),
+            Role(
+                90633,
+                566525,
+                "Tony Leung Chiu-wai",
+                "https://image.tmdb.org/t/p/w154/nQbSQAws5BdakPEB5MtiqWVeaMV.jpg",
+                "Xu Wenwu / The Mandarin"
+            ),
+            Role(
+                1742596,
+                566525,
+                "Awkwafina",
+                "https://image.tmdb.org/t/p/w154/l5AKkg3H1QhMuXmTTmq1EyjyiRb.jpg",
+                "Katy Chen"
+            )
+        )
+        return ShangChiCastList
+    }
+
+    override suspend fun getMovieCast(movieId: Int): Flow<List<Role?>> {
+        // get the cast for my movie
+        val castList = fakeData.getMovieCast().filter {
+            it.movie_id == movieId
+        }
+        if (castList.count() > 0) {
+            // found cast for this movie in local cache (BD)
+            return flow {
+                emit(castList)
+            }
+        } else {
+            // NOT found cast for this movie in local cache (BD)
+            // insert the cast for the movie from the "network"
+            val updatedCastList = fakeData.getNetworkMovieCast()
+            val castFromNetwork = updatedCastList.filter {
+                it.movie_id == movieId
+            }
+            return flow {
+                emit(castFromNetwork)
+            }
+        }
+    }
+
+    override suspend fun insertCast(roleList: List<Role?>) {
         // not necessary for testing
     }
 
