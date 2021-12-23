@@ -5,6 +5,7 @@ import com.gemma.popularmovies.data.MovieDataSource
 import com.gemma.popularmovies.data.network.model.TrailerDto
 import com.gemma.popularmovies.data.network.model.TrailersPageDto
 import com.gemma.popularmovies.domain.model.Movie
+import com.gemma.popularmovies.domain.model.Provider
 import com.gemma.popularmovies.domain.model.Role
 import com.gemma.popularmovies.domain.model.Trailer
 import kotlinx.coroutines.flow.Flow
@@ -114,6 +115,51 @@ class MovieNetworkDataSource @Inject constructor(private val moviesApiService: M
     }
 
     override suspend fun insertCast(roleList: List<Role?>) {
+        // Not required for the remote data source
+    }
+
+    override suspend fun getProviders(movieId: Int): Flow<List<Provider?>> {
+        // Not required for the remote data source
+        return emptyFlow()
+    }
+
+    override suspend fun getFreshProviders(movieId: Int): List<Provider?> {
+        if (NetworkConnectivityManager.isNetworkConnected(context)) {
+
+            val providerList = mutableListOf<Provider>()
+            val providersByCountry = moviesApiService.getProviders(movieId).countries.country
+            if (providersByCountry != null) {
+                if (providersByCountry.flatRateProviders !== null && providersByCountry.flatRateProviders.count() > 0) {
+                    val flatRateProviderList: List<Provider> =
+                        providersByCountry.flatRateProviders.map {
+                            it?.toDomain(movieId, "flatrate")!!
+                        }
+                    providerList.addAll(flatRateProviderList)
+                }
+
+                if (providersByCountry.rentProviders !== null && providersByCountry.rentProviders.count() > 0) {
+                    val rentProviderList: List<Provider> =
+                        providersByCountry.rentProviders.map {
+                            it?.toDomain(movieId, "rent")!!
+                        }
+                    providerList.addAll(rentProviderList)
+                }
+
+                if (providersByCountry.buyProviders !== null && providersByCountry.buyProviders != null && providersByCountry.buyProviders.count() > 0) {
+                    val buyProviderList: List<Provider> = providersByCountry.buyProviders.map {
+                        it?.toDomain(movieId, "buy")!!
+                    }
+                    providerList.addAll(buyProviderList)
+                }
+            }
+            return providerList
+
+        } else {
+            return emptyList()
+        }
+    }
+
+    override suspend fun insertProviders(providerList: List<Provider?>) {
         // Not required for the remote data source
     }
 

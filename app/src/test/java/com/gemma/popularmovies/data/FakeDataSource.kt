@@ -1,6 +1,7 @@
 package com.gemma.popularmovies.data
 
 import com.gemma.popularmovies.domain.model.Movie
+import com.gemma.popularmovies.domain.model.Provider
 import com.gemma.popularmovies.domain.model.Role
 import com.gemma.popularmovies.domain.model.Trailer
 import kotlinx.coroutines.flow.Flow
@@ -137,6 +138,20 @@ class FakeDataSource : MovieDataSource {
     }
 
     override suspend fun insertCast(roleList: List<Role?>) {
+        // not necessary for testing
+    }
+
+    override suspend fun getProviders(movieId: Int): Flow<List<Provider?>> {
+        return flow {
+            emit(fakeData.getProviderList())
+        }
+    }
+
+    override suspend fun getFreshProviders(movieId: Int): List<Provider?> {
+        return fakeData.getProviderList()
+    }
+
+    override suspend fun insertProviders(providerList: List<Provider?>) {
         // not necessary for testing
     }
 

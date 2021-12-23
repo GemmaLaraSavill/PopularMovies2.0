@@ -2,6 +2,7 @@ package com.gemma.popularmovies.data
 
 import com.gemma.popularmovies.data.cache.model.CachedMovieMinimal
 import com.gemma.popularmovies.domain.model.Movie
+import com.gemma.popularmovies.domain.model.Provider
 import com.gemma.popularmovies.domain.model.Role
 import com.gemma.popularmovies.domain.model.Trailer
 
@@ -145,5 +146,31 @@ class FakeData {
             )
         )
         return shangChiCastList
+    }
+
+    fun getProviderList(): List<Provider> {
+        return listOf(
+            Provider(
+                337,
+                497698,
+                "Disney Plus",
+                "https://image.tmdb.org/t/p/w154/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+                "flatrate"
+            ),
+            Provider(
+                10,
+                497698,
+                "Amazon Video",
+                "https://image.tmdb.org/t/p/w154/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg",
+                "buy"
+            ),
+            Provider(
+                2,
+                497698,
+                "Apple iTunes",
+                "https://image.tmdb.org/t/p/w154/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+                "rent"
+            )
+        )
     }
 }

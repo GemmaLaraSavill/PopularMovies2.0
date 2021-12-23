@@ -126,6 +126,29 @@ class PopularMovieApiTestUsingMockServer {
         }
     }
 
+    // PROVIDERS
+    private val testProvidersJson = getJson("providers.json")
+
+    @Test
+    fun mockWebserver_EmitsProviders() {
+        mockWebServer.enqueue(
+            MockResponse()
+                .setBody(testProvidersJson)
+                .setResponseCode(200)
+        )
+
+        runBlocking {
+            var jsonResult = popularMovieService.getProviders(testMovieId)
+//            println(jsonResult.countries.country.link)
+//            println(jsonResult.countries.country.flatRateProviders.first().name)
+            assertEquals("https://www.themoviedb.org/movie/497698-black-widow/watch?locale=ES", jsonResult.countries.country.link)
+            assertEquals(2, jsonResult.countries.country.flatRateProviders.count())
+            assertEquals(4, jsonResult.countries.country.rentProviders.count())
+            assertEquals(5, jsonResult.countries.country.buyProviders.count())
+            assertEquals("Disney Plus", jsonResult.countries.country.flatRateProviders.first()?.name)
+        }
+    }
+
 
 }
 

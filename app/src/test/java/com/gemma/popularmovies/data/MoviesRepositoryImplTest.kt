@@ -1,6 +1,7 @@
 package com.gemma.popularmovies.data
 
 import com.gemma.popularmovies.domain.model.Movie
+import com.gemma.popularmovies.domain.model.Provider
 import com.gemma.popularmovies.domain.model.Role
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.runBlocking
@@ -122,6 +123,25 @@ class MoviesRepositoryImplTest {
         assertEquals(3, movieCastFlow.first().count())
         assertEquals("Simu Liu", movieCastFlow.first().first()?.name)
         assertEquals("Shaun / Shang-Chi", movieCastFlow.first().first()?.character)
+    }
+
+    @Test
+    fun getMovieProvidersOnEmptyMovie_returnsProvidersFromNetwork() = runBlocking {
+        // Before: get providers for a movie that doesn't have it's cast local cache
+        val movieId: Int = 566525 // id of Shang-Chi and the Legend of the Ten Rings
+        var movieProvidersFlow: Flow<List<Provider?>> = moviesRepository.getMovieProviders(movieId)
+        // check that the movie has been added and received
+        var expectedProviders = fakeData.getProviderList().first()
+        assertEquals(expectedProviders, movieProvidersFlow.first().first())
+    }
+
+    @Test
+    fun getMovieProviders_returnsProviders() = runBlocking {
+        // Before: get the movie from the repository
+        val movieId: Int = 497698 // id of BlackWidow
+        var movieProvidersFlow: Flow<List<Provider?>> = moviesRepository.getMovieProviders(movieId)
+        // check that the correct provider is received
+        assertEquals("Disney Plus", movieProvidersFlow.first().first()?.name)
     }
 
 

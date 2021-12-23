@@ -3,13 +3,11 @@ package com.gemma.popularmovies.ui.screens.detail
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.gemma.popularmovies.domain.model.Movie
+import com.gemma.popularmovies.domain.model.Provider
 import com.gemma.popularmovies.domain.model.Role
 import com.gemma.popularmovies.domain.usecase.GetMovieDetailUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.distinctUntilChanged
-import kotlinx.coroutines.flow.emptyFlow
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -19,10 +17,12 @@ class MovieViewModel @Inject constructor(private val getMovieUseCase: GetMovieDe
 
     var movie: Flow<Movie?> = emptyFlow()
     var cast: Flow<List<Role?>>
+    var providers: Flow<List<Provider?>>
 
     init {
         movie = getMovieById(null)
         cast = getCast(null)
+        providers = getProviders(null)
     }
 
     /**
@@ -64,6 +64,18 @@ class MovieViewModel @Inject constructor(private val getMovieUseCase: GetMovieDe
             }
         }
         return cast
+    }
+
+    fun getProviders(movieId: Int?): Flow<List<Provider?>> {
+        if (movieId != null) {
+            viewModelScope.launch {
+                providers = getMovieUseCase.getMovieProviders(movieId).onEach { it ->
+                    it.onEach {
+                    }
+                }
+            }
+        }
+        return providers
     }
 }
 

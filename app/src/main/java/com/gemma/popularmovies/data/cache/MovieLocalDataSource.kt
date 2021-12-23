@@ -3,12 +3,11 @@ package com.gemma.popularmovies.data.cache
 import com.gemma.popularmovies.data.MovieDataSource
 import com.gemma.popularmovies.data.cache.daos.CastDao
 import com.gemma.popularmovies.data.cache.daos.MovieDao
-import com.gemma.popularmovies.data.cache.model.CachedArtist
-import com.gemma.popularmovies.data.cache.model.CachedMovie
-import com.gemma.popularmovies.data.cache.model.CachedRole
-import com.gemma.popularmovies.data.cache.model.CachedTrailer
+import com.gemma.popularmovies.data.cache.daos.ProviderDao
+import com.gemma.popularmovies.data.cache.model.*
 import com.gemma.popularmovies.data.network.ApiConstants
 import com.gemma.popularmovies.domain.model.Movie
+import com.gemma.popularmovies.domain.model.Provider
 import com.gemma.popularmovies.domain.model.Role
 import com.gemma.popularmovies.domain.model.Trailer
 import kotlinx.coroutines.flow.Flow
@@ -20,7 +19,8 @@ import javax.inject.Inject
  */
 class MovieLocalDataSource @Inject constructor(
     private val movieDao: MovieDao,
-    private val castDao: CastDao
+    private val castDao: CastDao,
+    private val providerDao: ProviderDao
 ) : MovieDataSource {
 
     override suspend fun getPopularMovies(): Flow<List<Movie>> {
@@ -163,6 +163,52 @@ class MovieLocalDataSource @Inject constructor(
         // insert into DB
         castDao.insertArtists(artistsToDb)
         castDao.insertRoles(rolesToDb)
+    }
+
+    override suspend fun getProviders(movieId: Int): Flow<List<Provider?>> {
+        return providerDao.getMovieProviders(movieId).map { providerList ->
+            providerList.onEach {
+            }.map {
+                it?.provider?.logo =
+                    ApiConstants.thumbUrl + ApiConstants.thumbSize154 + it?.provider?.logo
+                it?.toDomain()
+            }
+        }
+    }
+
+    override suspend fun getFreshProviders(movieId: Int): List<Provider?> {
+        // Not required for the local data source = source of truth
+        return emptyList()
+    }
+
+    /**
+     * Api sends a list of providers, for the local cache we will save the
+     * providers and roles separately as one artist can have different roles in different movies
+     */
+    override suspend fun insertProviders(providerList: List<Provider?>) {
+        // for the DB
+        val providersToDb = mutableListOf<CachedProvider>()
+        val aMovieProvidersToDb = mutableListOf<CachedProviderForMovie>()
+
+        // convert API data to DB format
+        var cachedProvider: CachedProvider
+        var cachedProviderForMovie: CachedProviderForMovie
+        for (provider in providerList) {
+            if (provider != null) {
+                cachedProvider = CachedProvider(provider.provider_id, provider.name, provider.logo)
+                cachedProviderForMovie = CachedProviderForMovie(
+                    0,
+                    provider.movie_id,
+                    provider.provider_id,
+                    provider.type
+                )
+                providersToDb.add(cachedProvider)
+                aMovieProvidersToDb.add(cachedProviderForMovie)
+            }
+        }
+        // insert into DB
+        providerDao.insertProviders(providersToDb)
+        providerDao.insertProvidersForMovie(aMovieProvidersToDb)
     }
 
 }

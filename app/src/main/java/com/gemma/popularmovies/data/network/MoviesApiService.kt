@@ -1,9 +1,6 @@
 package com.gemma.popularmovies.data.network
 
-import com.gemma.popularmovies.data.network.model.CastDto
-import com.gemma.popularmovies.data.network.model.MovieDto
-import com.gemma.popularmovies.data.network.model.MoviesPageDto
-import com.gemma.popularmovies.data.network.model.TrailersPageDto
+import com.gemma.popularmovies.data.network.model.*
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -25,5 +22,8 @@ interface MoviesApiService {
 
     @GET(ApiConstants.CREDITS)
     suspend fun getCredits(@Path("id") movieId: Int): CastDto
+
+    @GET(ApiConstants.PROVIDERS)
+    suspend fun getProviders(@Path("id") movieId: Int): ProviderResultsDto
 
 }

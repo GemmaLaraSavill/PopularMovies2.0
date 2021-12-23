@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.gemma.popularmovies.data.cache.daos.CastDao
 import com.gemma.popularmovies.data.cache.daos.MovieDao
+import com.gemma.popularmovies.data.cache.daos.ProviderDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,5 +33,11 @@ class DatabaseModule {
     @Provides
     fun provideCastDao(movieDatabase: MovieDatabase): CastDao {
         return movieDatabase.castDao()
+    }
+
+    @Singleton
+    @Provides
+    fun provideMovieProviderDao(movieDatabase: MovieDatabase): ProviderDao {
+        return movieDatabase.providerDao()
     }
 }

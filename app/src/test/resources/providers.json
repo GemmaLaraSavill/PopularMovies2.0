@@ -1,0 +1,2183 @@
+{
+  "id": 497698,
+  "results": {
+    "AR": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=AR",
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        }
+      ]
+    },
+    "AT": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=AT",
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 8,
+          "logo_path": "/pZgeSWpfvD59x6sY6stT5c6uc2h.jpg",
+          "provider_id": 130,
+          "provider_name": "Sky Store"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg",
+          "provider_id": 35,
+          "provider_name": "Rakuten TV"
+        },
+        {
+          "display_priority": 11,
+          "logo_path": "/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg",
+          "provider_id": 10,
+          "provider_name": "Amazon Video"
+        },
+        {
+          "display_priority": 11,
+          "logo_path": "/vjKeS7Y9fNyqNtvp2ROCc71iu1u.jpg",
+          "provider_id": 40,
+          "provider_name": "Chili"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        }
+      ],
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        },
+        {
+          "display_priority": 42,
+          "logo_path": "/sBPI5qvpXo3TRJDof5J4JJwfdK1.jpg",
+          "provider_id": 622,
+          "provider_name": "UPC TV"
+        }
+      ],
+      "rent": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 8,
+          "logo_path": "/pZgeSWpfvD59x6sY6stT5c6uc2h.jpg",
+          "provider_id": 130,
+          "provider_name": "Sky Store"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg",
+          "provider_id": 35,
+          "provider_name": "Rakuten TV"
+        },
+        {
+          "display_priority": 11,
+          "logo_path": "/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg",
+          "provider_id": 10,
+          "provider_name": "Amazon Video"
+        },
+        {
+          "display_priority": 11,
+          "logo_path": "/vjKeS7Y9fNyqNtvp2ROCc71iu1u.jpg",
+          "provider_id": 40,
+          "provider_name": "Chili"
+        },
+        {
+          "display_priority": 42,
+          "logo_path": "/p9T3rJjhDEK7QE56EhqC6nRgsLY.jpg",
+          "provider_id": 177,
+          "provider_name": "Pantaflix"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        }
+      ]
+    },
+    "AU": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=AU",
+      "rent": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 11,
+          "logo_path": "/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg",
+          "provider_id": 10,
+          "provider_name": "Amazon Video"
+        },
+        {
+          "display_priority": 13,
+          "logo_path": "/vDCcryHD32b0yMeSCgBhuYavsmx.jpg",
+          "provider_id": 192,
+          "provider_name": "YouTube"
+        },
+        {
+          "display_priority": 31,
+          "logo_path": "/3EYDWWnkfNZO6ciRVWjv1cxnT3h.jpg",
+          "provider_id": 429,
+          "provider_name": "Telstra TV"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        }
+      ],
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 11,
+          "logo_path": "/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg",
+          "provider_id": 10,
+          "provider_name": "Amazon Video"
+        },
+        {
+          "display_priority": 13,
+          "logo_path": "/vDCcryHD32b0yMeSCgBhuYavsmx.jpg",
+          "provider_id": 192,
+          "provider_name": "YouTube"
+        },
+        {
+          "display_priority": 31,
+          "logo_path": "/3EYDWWnkfNZO6ciRVWjv1cxnT3h.jpg",
+          "provider_id": 429,
+          "provider_name": "Telstra TV"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        }
+      ],
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        }
+      ]
+    },
+    "BE": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=BE",
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg",
+          "provider_id": 35,
+          "provider_name": "Rakuten TV"
+        }
+      ],
+      "rent": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg",
+          "provider_id": 35,
+          "provider_name": "Rakuten TV"
+        }
+      ],
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        }
+      ]
+    },
+    "BO": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=BO",
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        }
+      ]
+    },
+    "BR": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=BR",
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        }
+      ]
+    },
+    "CA": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=CA",
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        }
+      ],
+      "rent": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 11,
+          "logo_path": "/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg",
+          "provider_id": 10,
+          "provider_name": "Amazon Video"
+        },
+        {
+          "display_priority": 12,
+          "logo_path": "/xEWgUq2tJyggisxbJ3fNOV9Inj2.jpg",
+          "provider_id": 140,
+          "provider_name": "Cineplex"
+        },
+        {
+          "display_priority": 13,
+          "logo_path": "/vDCcryHD32b0yMeSCgBhuYavsmx.jpg",
+          "provider_id": 192,
+          "provider_name": "YouTube"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        },
+        {
+          "display_priority": 58,
+          "logo_path": "/mK7Au1go2M5MqyZ8CjkpJPM6Apb.jpg",
+          "provider_id": 492,
+          "provider_name": "ILLICO"
+        }
+      ],
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 11,
+          "logo_path": "/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg",
+          "provider_id": 10,
+          "provider_name": "Amazon Video"
+        },
+        {
+          "display_priority": 12,
+          "logo_path": "/xEWgUq2tJyggisxbJ3fNOV9Inj2.jpg",
+          "provider_id": 140,
+          "provider_name": "Cineplex"
+        },
+        {
+          "display_priority": 13,
+          "logo_path": "/vDCcryHD32b0yMeSCgBhuYavsmx.jpg",
+          "provider_id": 192,
+          "provider_name": "YouTube"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        }
+      ]
+    },
+    "CH": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=CH",
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        },
+        {
+          "display_priority": 42,
+          "logo_path": "/sBPI5qvpXo3TRJDof5J4JJwfdK1.jpg",
+          "provider_id": 622,
+          "provider_name": "UPC TV"
+        }
+      ],
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/dSBzj4T9P7PMUr015gnV7meT2LR.jpg",
+          "provider_id": 150,
+          "provider_name": "SwissCom"
+        },
+        {
+          "display_priority": 8,
+          "logo_path": "/pZgeSWpfvD59x6sY6stT5c6uc2h.jpg",
+          "provider_id": 130,
+          "provider_name": "Sky Store"
+        },
+        {
+          "display_priority": 8,
+          "logo_path": "/567LmXMmafb8e2jGOmpHDZNl2r8.jpg",
+          "provider_id": 164,
+          "provider_name": "Hollystar"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg",
+          "provider_id": 35,
+          "provider_name": "Rakuten TV"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        }
+      ],
+      "rent": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/dSBzj4T9P7PMUr015gnV7meT2LR.jpg",
+          "provider_id": 150,
+          "provider_name": "SwissCom"
+        },
+        {
+          "display_priority": 8,
+          "logo_path": "/pZgeSWpfvD59x6sY6stT5c6uc2h.jpg",
+          "provider_id": 130,
+          "provider_name": "Sky Store"
+        },
+        {
+          "display_priority": 8,
+          "logo_path": "/567LmXMmafb8e2jGOmpHDZNl2r8.jpg",
+          "provider_id": 164,
+          "provider_name": "Hollystar"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg",
+          "provider_id": 35,
+          "provider_name": "Rakuten TV"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        }
+      ]
+    },
+    "CL": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=CL",
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        }
+      ]
+    },
+    "CO": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=CO",
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        }
+      ]
+    },
+    "CR": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=CR",
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        }
+      ]
+    },
+    "DE": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=DE",
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 8,
+          "logo_path": "/pZgeSWpfvD59x6sY6stT5c6uc2h.jpg",
+          "provider_id": 130,
+          "provider_name": "Sky Store"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg",
+          "provider_id": 35,
+          "provider_name": "Rakuten TV"
+        },
+        {
+          "display_priority": 11,
+          "logo_path": "/vjKeS7Y9fNyqNtvp2ROCc71iu1u.jpg",
+          "provider_id": 40,
+          "provider_name": "Chili"
+        },
+        {
+          "display_priority": 11,
+          "logo_path": "/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg",
+          "provider_id": 10,
+          "provider_name": "Amazon Video"
+        },
+        {
+          "display_priority": 13,
+          "logo_path": "/vDCcryHD32b0yMeSCgBhuYavsmx.jpg",
+          "provider_id": 192,
+          "provider_name": "YouTube"
+        },
+        {
+          "display_priority": 28,
+          "logo_path": "/6QfNLK9toSu2bvsWN7A0sEsTz3j.jpg",
+          "provider_id": 178,
+          "provider_name": "EntertainTV"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        }
+      ],
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        }
+      ],
+      "rent": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 8,
+          "logo_path": "/pZgeSWpfvD59x6sY6stT5c6uc2h.jpg",
+          "provider_id": 130,
+          "provider_name": "Sky Store"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg",
+          "provider_id": 35,
+          "provider_name": "Rakuten TV"
+        },
+        {
+          "display_priority": 11,
+          "logo_path": "/vjKeS7Y9fNyqNtvp2ROCc71iu1u.jpg",
+          "provider_id": 40,
+          "provider_name": "Chili"
+        },
+        {
+          "display_priority": 11,
+          "logo_path": "/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg",
+          "provider_id": 10,
+          "provider_name": "Amazon Video"
+        },
+        {
+          "display_priority": 13,
+          "logo_path": "/vDCcryHD32b0yMeSCgBhuYavsmx.jpg",
+          "provider_id": 192,
+          "provider_name": "YouTube"
+        },
+        {
+          "display_priority": 28,
+          "logo_path": "/6QfNLK9toSu2bvsWN7A0sEsTz3j.jpg",
+          "provider_id": 178,
+          "provider_name": "EntertainTV"
+        },
+        {
+          "display_priority": 42,
+          "logo_path": "/p9T3rJjhDEK7QE56EhqC6nRgsLY.jpg",
+          "provider_id": 177,
+          "provider_name": "Pantaflix"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        }
+      ]
+    },
+    "DK": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=DK",
+      "rent": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg",
+          "provider_id": 35,
+          "provider_name": "Rakuten TV"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        }
+      ],
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        }
+      ],
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg",
+          "provider_id": 35,
+          "provider_name": "Rakuten TV"
+        },
+        {
+          "display_priority": 22,
+          "logo_path": "/yEbC1a22QZul3KGjeZ1OZjcN4u6.jpg",
+          "provider_id": 426,
+          "provider_name": "SF Anytime"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        }
+      ]
+    },
+    "EC": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=EC",
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        }
+      ]
+    },
+    "EE": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=EE",
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        }
+      ]
+    },
+    "ES": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=ES",
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/3kZQY7nIwC5sIJmURyF6W91pAkg.jpg",
+          "provider_id": 149,
+          "provider_name": "Movistar Plus"
+        }
+      ],
+      "rent": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/3kZQY7nIwC5sIJmURyF6W91pAkg.jpg",
+          "provider_id": 149,
+          "provider_name": "Movistar Plus"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        }
+      ],
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg",
+          "provider_id": 35,
+          "provider_name": "Rakuten TV"
+        },
+        {
+          "display_priority": 11,
+          "logo_path": "/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg",
+          "provider_id": 10,
+          "provider_name": "Amazon Video"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        }
+      ]
+    },
+    "FI": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=FI",
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        }
+      ],
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg",
+          "provider_id": 35,
+          "provider_name": "Rakuten TV"
+        },
+        {
+          "display_priority": 21,
+          "logo_path": "/oEntjkQyz84qo1C4FZK9jW1qznl.jpg",
+          "provider_id": 423,
+          "provider_name": "Blockbuster"
+        },
+        {
+          "display_priority": 22,
+          "logo_path": "/yEbC1a22QZul3KGjeZ1OZjcN4u6.jpg",
+          "provider_id": 426,
+          "provider_name": "SF Anytime"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        }
+      ],
+      "rent": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 4,
+          "logo_path": "/okuStqHQL2ImgtNxNM40La91u3A.jpg",
+          "provider_id": 76,
+          "provider_name": "Viaplay"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg",
+          "provider_id": 35,
+          "provider_name": "Rakuten TV"
+        },
+        {
+          "display_priority": 21,
+          "logo_path": "/oEntjkQyz84qo1C4FZK9jW1qznl.jpg",
+          "provider_id": 423,
+          "provider_name": "Blockbuster"
+        },
+        {
+          "display_priority": 36,
+          "logo_path": "/4DrvzomVasfWYZ1FN2YwFzANcNx.jpg",
+          "provider_id": 553,
+          "provider_name": "Telia Play"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        }
+      ]
+    },
+    "FR": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=FR",
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/bqgpWEtokIEOF5nsliXca2BQMEn.jpg",
+          "provider_id": 61,
+          "provider_name": "Orange VOD"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg",
+          "provider_id": 35,
+          "provider_name": "Rakuten TV"
+        },
+        {
+          "display_priority": 11,
+          "logo_path": "/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg",
+          "provider_id": 10,
+          "provider_name": "Amazon Video"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        }
+      ]
+    },
+    "GB": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=GB",
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        },
+        {
+          "display_priority": 63,
+          "logo_path": "/2OTvHZ5EjTd55bC0LF8KzQlkzgJ.jpg",
+          "provider_id": 594,
+          "provider_name": "Virgin TV Go"
+        }
+      ],
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 8,
+          "logo_path": "/pZgeSWpfvD59x6sY6stT5c6uc2h.jpg",
+          "provider_id": 130,
+          "provider_name": "Sky Store"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg",
+          "provider_id": 35,
+          "provider_name": "Rakuten TV"
+        },
+        {
+          "display_priority": 11,
+          "logo_path": "/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg",
+          "provider_id": 10,
+          "provider_name": "Amazon Video"
+        },
+        {
+          "display_priority": 11,
+          "logo_path": "/vjKeS7Y9fNyqNtvp2ROCc71iu1u.jpg",
+          "provider_id": 40,
+          "provider_name": "Chili"
+        },
+        {
+          "display_priority": 13,
+          "logo_path": "/vDCcryHD32b0yMeSCgBhuYavsmx.jpg",
+          "provider_id": 192,
+          "provider_name": "YouTube"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        }
+      ],
+      "rent": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 8,
+          "logo_path": "/pZgeSWpfvD59x6sY6stT5c6uc2h.jpg",
+          "provider_id": 130,
+          "provider_name": "Sky Store"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg",
+          "provider_id": 35,
+          "provider_name": "Rakuten TV"
+        },
+        {
+          "display_priority": 11,
+          "logo_path": "/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg",
+          "provider_id": 10,
+          "provider_name": "Amazon Video"
+        },
+        {
+          "display_priority": 11,
+          "logo_path": "/vjKeS7Y9fNyqNtvp2ROCc71iu1u.jpg",
+          "provider_id": 40,
+          "provider_name": "Chili"
+        }
+      ]
+    },
+    "GT": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=GT",
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        }
+      ]
+    },
+    "HK": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=HK",
+      "rent": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        }
+      ],
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        }
+      ]
+    },
+    "HN": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=HN",
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        }
+      ]
+    },
+    "ID": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=ID",
+      "flatrate": [
+        {
+          "display_priority": 0,
+          "logo_path": "/eApzJtzOngfBlEC3lCjuAtzsOTf.jpg",
+          "provider_id": 122,
+          "provider_name": "Hotstar"
+        }
+      ],
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        }
+      ]
+    },
+    "IE": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=IE",
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        }
+      ],
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 8,
+          "logo_path": "/pZgeSWpfvD59x6sY6stT5c6uc2h.jpg",
+          "provider_id": 130,
+          "provider_name": "Sky Store"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg",
+          "provider_id": 35,
+          "provider_name": "Rakuten TV"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        }
+      ],
+      "rent": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 8,
+          "logo_path": "/pZgeSWpfvD59x6sY6stT5c6uc2h.jpg",
+          "provider_id": 130,
+          "provider_name": "Sky Store"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg",
+          "provider_id": 35,
+          "provider_name": "Rakuten TV"
+        }
+      ]
+    },
+    "IN": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=IN",
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 13,
+          "logo_path": "/vDCcryHD32b0yMeSCgBhuYavsmx.jpg",
+          "provider_id": 192,
+          "provider_name": "YouTube"
+        }
+      ],
+      "flatrate": [
+        {
+          "display_priority": 0,
+          "logo_path": "/eApzJtzOngfBlEC3lCjuAtzsOTf.jpg",
+          "provider_id": 122,
+          "provider_name": "Hotstar"
+        }
+      ],
+      "rent": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 13,
+          "logo_path": "/vDCcryHD32b0yMeSCgBhuYavsmx.jpg",
+          "provider_id": 192,
+          "provider_name": "YouTube"
+        }
+      ]
+    },
+    "IT": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=IT",
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg",
+          "provider_id": 35,
+          "provider_name": "Rakuten TV"
+        },
+        {
+          "display_priority": 11,
+          "logo_path": "/vjKeS7Y9fNyqNtvp2ROCc71iu1u.jpg",
+          "provider_id": 40,
+          "provider_name": "Chili"
+        },
+        {
+          "display_priority": 11,
+          "logo_path": "/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg",
+          "provider_id": 10,
+          "provider_name": "Amazon Video"
+        },
+        {
+          "display_priority": 13,
+          "logo_path": "/mn4yGYhpzVMKr9WFvcxmZK9RK86.jpg",
+          "provider_id": 109,
+          "provider_name": "Timvision"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        }
+      ],
+      "rent": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg",
+          "provider_id": 35,
+          "provider_name": "Rakuten TV"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wQmZmDQmBjlWtLYQGiCvZxxYGIW.jpg",
+          "provider_id": 359,
+          "provider_name": "Mediaset Play"
+        },
+        {
+          "display_priority": 11,
+          "logo_path": "/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg",
+          "provider_id": 10,
+          "provider_name": "Amazon Video"
+        },
+        {
+          "display_priority": 11,
+          "logo_path": "/vjKeS7Y9fNyqNtvp2ROCc71iu1u.jpg",
+          "provider_id": 40,
+          "provider_name": "Chili"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        }
+      ],
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        }
+      ]
+    },
+    "JP": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=JP",
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 11,
+          "logo_path": "/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg",
+          "provider_id": 10,
+          "provider_name": "Amazon Video"
+        }
+      ],
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        },
+        {
+          "display_priority": 13,
+          "logo_path": "/dgPueyEdOwpQ10fjuhL2WYFQwQs.jpg",
+          "provider_id": 390,
+          "provider_name": "Disney Plus"
+        }
+      ],
+      "rent": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 4,
+          "logo_path": "/92xPNIrrXdgtfPu4Dd4tFryc9LW.jpg",
+          "provider_id": 84,
+          "provider_name": "U-NEXT"
+        },
+        {
+          "display_priority": 11,
+          "logo_path": "/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg",
+          "provider_id": 10,
+          "provider_name": "Amazon Video"
+        }
+      ]
+    },
+    "KR": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=KR",
+      "rent": [
+        {
+          "display_priority": 2,
+          "logo_path": "/8N0DNa4BO3lH24KWv1EjJh4TxoD.jpg",
+          "provider_id": 356,
+          "provider_name": "wavve"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        }
+      ],
+      "buy": [
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        }
+      ]
+    },
+    "LV": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=LV",
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        }
+      ]
+    },
+    "MX": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=MX",
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        }
+      ]
+    },
+    "MY": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=MY",
+      "flatrate": [
+        {
+          "display_priority": 0,
+          "logo_path": "/eApzJtzOngfBlEC3lCjuAtzsOTf.jpg",
+          "provider_id": 122,
+          "provider_name": "Hotstar"
+        }
+      ],
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        }
+      ]
+    },
+    "NL": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=NL",
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        },
+        {
+          "display_priority": 34,
+          "logo_path": "/9sOKDL0W3HeUFAY8kCJGz9kadhC.jpg",
+          "provider_id": 563,
+          "provider_name": "KPN"
+        }
+      ],
+      "rent": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg",
+          "provider_id": 35,
+          "provider_name": "Rakuten TV"
+        },
+        {
+          "display_priority": 11,
+          "logo_path": "/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg",
+          "provider_id": 10,
+          "provider_name": "Amazon Video"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        }
+      ],
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 6,
+          "logo_path": "/j7qnV5qyzWDB0uOdhe5PzQh71Th.jpg",
+          "provider_id": 71,
+          "provider_name": "Pathé Thuis"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg",
+          "provider_id": 35,
+          "provider_name": "Rakuten TV"
+        },
+        {
+          "display_priority": 11,
+          "logo_path": "/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg",
+          "provider_id": 10,
+          "provider_name": "Amazon Video"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        }
+      ]
+    },
+    "NO": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=NO",
+      "rent": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 4,
+          "logo_path": "/okuStqHQL2ImgtNxNM40La91u3A.jpg",
+          "provider_id": 76,
+          "provider_name": "Viaplay"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg",
+          "provider_id": 35,
+          "provider_name": "Rakuten TV"
+        },
+        {
+          "display_priority": 21,
+          "logo_path": "/oEntjkQyz84qo1C4FZK9jW1qznl.jpg",
+          "provider_id": 423,
+          "provider_name": "Blockbuster"
+        },
+        {
+          "display_priority": 23,
+          "logo_path": "/vQcXxLDrybWOMK68kzZJ78TmcF2.jpg",
+          "provider_id": 431,
+          "provider_name": "SumoTV"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        }
+      ],
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg",
+          "provider_id": 35,
+          "provider_name": "Rakuten TV"
+        },
+        {
+          "display_priority": 21,
+          "logo_path": "/oEntjkQyz84qo1C4FZK9jW1qznl.jpg",
+          "provider_id": 423,
+          "provider_name": "Blockbuster"
+        },
+        {
+          "display_priority": 22,
+          "logo_path": "/yEbC1a22QZul3KGjeZ1OZjcN4u6.jpg",
+          "provider_id": 426,
+          "provider_name": "SF Anytime"
+        },
+        {
+          "display_priority": 23,
+          "logo_path": "/vQcXxLDrybWOMK68kzZJ78TmcF2.jpg",
+          "provider_id": 431,
+          "provider_name": "SumoTV"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        }
+      ],
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        },
+        {
+          "display_priority": 35,
+          "logo_path": "/2SZVMASyXPKC7sEBHgmTjCMySNG.jpg",
+          "provider_id": 578,
+          "provider_name": "Strim"
+        }
+      ]
+    },
+    "NZ": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=NZ",
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        }
+      ],
+      "rent": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 2,
+          "logo_path": "/wRfIw4x22z9Zag6DZ8qLYwzpjOA.jpg",
+          "provider_id": 273,
+          "provider_name": "Neon TV"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        }
+      ],
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        }
+      ]
+    },
+    "PE": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=PE",
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        }
+      ]
+    },
+    "PL": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=PL",
+      "buy": [
+        {
+          "display_priority": 11,
+          "logo_path": "/vjKeS7Y9fNyqNtvp2ROCc71iu1u.jpg",
+          "provider_id": 40,
+          "provider_name": "Chili"
+        }
+      ]
+    },
+    "PT": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=PT",
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg",
+          "provider_id": 35,
+          "provider_name": "Rakuten TV"
+        },
+        {
+          "display_priority": 13,
+          "logo_path": "/vDCcryHD32b0yMeSCgBhuYavsmx.jpg",
+          "provider_id": 192,
+          "provider_name": "YouTube"
+        }
+      ],
+      "rent": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg",
+          "provider_id": 35,
+          "provider_name": "Rakuten TV"
+        },
+        {
+          "display_priority": 13,
+          "logo_path": "/vDCcryHD32b0yMeSCgBhuYavsmx.jpg",
+          "provider_id": 192,
+          "provider_name": "YouTube"
+        }
+      ],
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        }
+      ]
+    },
+    "PY": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=PY",
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        }
+      ]
+    },
+    "RU": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=RU",
+      "rent": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/As8vTHasikgyhZPkSOI9QzAst4L.jpg",
+          "provider_id": 115,
+          "provider_name": "Okko"
+        },
+        {
+          "display_priority": 16,
+          "logo_path": "/4AWMLvjQUQNmU3CkpLp7FSSIyZX.jpg",
+          "provider_id": 501,
+          "provider_name": "Wink"
+        }
+      ],
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/As8vTHasikgyhZPkSOI9QzAst4L.jpg",
+          "provider_id": 115,
+          "provider_name": "Okko"
+        },
+        {
+          "display_priority": 16,
+          "logo_path": "/4AWMLvjQUQNmU3CkpLp7FSSIyZX.jpg",
+          "provider_id": 501,
+          "provider_name": "Wink"
+        }
+      ]
+    },
+    "SE": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=SE",
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg",
+          "provider_id": 35,
+          "provider_name": "Rakuten TV"
+        },
+        {
+          "display_priority": 21,
+          "logo_path": "/oEntjkQyz84qo1C4FZK9jW1qznl.jpg",
+          "provider_id": 423,
+          "provider_name": "Blockbuster"
+        },
+        {
+          "display_priority": 22,
+          "logo_path": "/yEbC1a22QZul3KGjeZ1OZjcN4u6.jpg",
+          "provider_id": 426,
+          "provider_name": "SF Anytime"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        }
+      ],
+      "rent": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 4,
+          "logo_path": "/okuStqHQL2ImgtNxNM40La91u3A.jpg",
+          "provider_id": 76,
+          "provider_name": "Viaplay"
+        },
+        {
+          "display_priority": 10,
+          "logo_path": "/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg",
+          "provider_id": 35,
+          "provider_name": "Rakuten TV"
+        },
+        {
+          "display_priority": 21,
+          "logo_path": "/oEntjkQyz84qo1C4FZK9jW1qznl.jpg",
+          "provider_id": 423,
+          "provider_name": "Blockbuster"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        }
+      ],
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        }
+      ]
+    },
+    "SG": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=SG",
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        }
+      ],
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        }
+      ],
+      "rent": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        }
+      ]
+    },
+    "TH": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=TH",
+      "flatrate": [
+        {
+          "display_priority": 0,
+          "logo_path": "/eApzJtzOngfBlEC3lCjuAtzsOTf.jpg",
+          "provider_id": 122,
+          "provider_name": "Hotstar"
+        }
+      ],
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        }
+      ],
+      "rent": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        }
+      ]
+    },
+    "TW": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=TW",
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        }
+      ],
+      "rent": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        }
+      ]
+    },
+    "US": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=US",
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        }
+      ],
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 11,
+          "logo_path": "/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg",
+          "provider_id": 10,
+          "provider_name": "Amazon Video"
+        },
+        {
+          "display_priority": 13,
+          "logo_path": "/vDCcryHD32b0yMeSCgBhuYavsmx.jpg",
+          "provider_id": 192,
+          "provider_name": "YouTube"
+        },
+        {
+          "display_priority": 36,
+          "logo_path": "/hBdCQamqj7J2VPZNbqf0wiLBous.jpg",
+          "provider_id": 7,
+          "provider_name": "Vudu"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        },
+        {
+          "display_priority": 53,
+          "logo_path": "/qZdEeINwQotbr1Rq15dL5G2BaAh.jpg",
+          "provider_id": 358,
+          "provider_name": "DIRECTV"
+        },
+        {
+          "display_priority": 133,
+          "logo_path": "/p1e92kLeYHalxC9GClqNJ75lBDG.jpg",
+          "provider_id": 352,
+          "provider_name": "AMC on Demand"
+        }
+      ],
+      "rent": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        },
+        {
+          "display_priority": 11,
+          "logo_path": "/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg",
+          "provider_id": 10,
+          "provider_name": "Amazon Video"
+        },
+        {
+          "display_priority": 13,
+          "logo_path": "/vDCcryHD32b0yMeSCgBhuYavsmx.jpg",
+          "provider_id": 192,
+          "provider_name": "YouTube"
+        },
+        {
+          "display_priority": 36,
+          "logo_path": "/hBdCQamqj7J2VPZNbqf0wiLBous.jpg",
+          "provider_id": 7,
+          "provider_name": "Vudu"
+        },
+        {
+          "display_priority": 47,
+          "logo_path": "/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg",
+          "provider_id": 68,
+          "provider_name": "Microsoft Store"
+        },
+        {
+          "display_priority": 53,
+          "logo_path": "/qZdEeINwQotbr1Rq15dL5G2BaAh.jpg",
+          "provider_id": 358,
+          "provider_name": "DIRECTV"
+        },
+        {
+          "display_priority": 133,
+          "logo_path": "/p1e92kLeYHalxC9GClqNJ75lBDG.jpg",
+          "provider_id": 352,
+          "provider_name": "AMC on Demand"
+        },
+        {
+          "display_priority": 167,
+          "logo_path": "/xiUQmGI2bi8Rn6C5u2bArB4YHMp.jpg",
+          "provider_id": 486,
+          "provider_name": "Spectrum On Demand"
+        }
+      ]
+    },
+    "VE": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=VE",
+      "flatrate": [
+        {
+          "display_priority": 1,
+          "logo_path": "/mIGNMa4QE8E5fIABDH6lWfy5qhn.jpg",
+          "provider_id": 337,
+          "provider_name": "Disney Plus"
+        }
+      ]
+    },
+    "ZA": {
+      "link": "https://www.themoviedb.org/movie/497698-black-widow/watch?locale=ZA",
+      "buy": [
+        {
+          "display_priority": 2,
+          "logo_path": "/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg",
+          "provider_id": 2,
+          "provider_name": "Apple iTunes"
+        },
+        {
+          "display_priority": 3,
+          "logo_path": "/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg",
+          "provider_id": 3,
+          "provider_name": "Google Play Movies"
+        }
+      ]
+    }
+  }
+}

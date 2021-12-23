@@ -19,8 +19,8 @@ object ApiConstants {
     const val VIDEOS = "movie/{id}/videos"
 
     // Powered by our partnership with JustWatch, you can query this method to get a list of the availabilities per country by provider.
-    // TODO Please note: In order to use this data you must attribute the source of the data as JustWatch. If we find any usage not complying with these terms we will revoke access to the API.
-    const val PROVIDERS = "movie/{movie_id}/watch/providers"
+    // Please note: In order to use this data you must attribute the source of the data as JustWatch. If we find any usage not complying with these terms we will revoke access to the API.
+    const val PROVIDERS = "movie/{id}/watch/providers"
 
     // Get the cast and crew for a movie.
     const val CREDITS = "movie/{id}/credits"

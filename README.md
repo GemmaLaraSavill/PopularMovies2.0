@@ -29,7 +29,7 @@ Screenshot of one the Composables in the app in Android Studio Preview mode:
 
 Preview video of the detail screen of the app, now showing movie cast:
 
-<img src="./github/app-preview-video.gif" width="320" />
+<img src="./github/app-preview-with-cast-and-providers.gif" width="320" />
 
 ## Installation
 

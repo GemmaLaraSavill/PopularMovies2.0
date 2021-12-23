@@ -26,6 +26,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -35,6 +36,7 @@ import coil.compose.rememberImagePainter
 import coil.size.OriginalSize
 import com.gemma.popularmovies.R
 import com.gemma.popularmovies.domain.model.Movie
+import com.gemma.popularmovies.domain.model.Provider
 import com.gemma.popularmovies.domain.model.Role
 import com.gemma.popularmovies.domain.model.Trailer
 import com.gemma.popularmovies.ui.composables.LoadingIndicator
@@ -53,6 +55,9 @@ fun DetailScreen(movieId: Int?, navController: NavController, viewModel: MovieVi
     viewModel.getCast(movieId)
     val cast: List<Role?> by viewModel.cast.collectAsState(initial = emptyList())
 
+    viewModel.getProviders(movieId)
+    val providers: List<Provider?> by viewModel.providers.collectAsState(initial = emptyList())
+
     val scaffoldState = rememberScaffoldState()
     val snackbarCoroutineScope = rememberCoroutineScope()
 
@@ -66,13 +71,18 @@ fun DetailScreen(movieId: Int?, navController: NavController, viewModel: MovieVi
                 snackbarCoroutineScope
             )
         }) { innerPadding ->
-        DetailScreenBody(Modifier.padding(innerPadding), movie, cast)
+        DetailScreenBody(Modifier.padding(innerPadding), movie, cast, providers)
     }
 }
 
 
 @Composable
-fun DetailScreenBody(modifier: Modifier, movie: Movie?, cast: List<Role?>) {
+fun DetailScreenBody(
+    modifier: Modifier,
+    movie: Movie?,
+    cast: List<Role?>,
+    providers: List<Provider?>
+) {
     val scrollState = rememberScrollState()
     PopularMoviesTheme {
         if (movie == null) {
@@ -93,6 +103,7 @@ fun DetailScreenBody(modifier: Modifier, movie: Movie?, cast: List<Role?>) {
                 if (cast.isNotEmpty()) {
                     CastList(cast)
                 }
+                ProviderList(providers)
             }
         }
     }
@@ -228,8 +239,76 @@ fun CharacterBadge(role: Role) {
 }
 
 @Composable
+fun ProviderList(providers: List<Provider?>) {
+    Column(Modifier.padding(bottom = 32.dp)) {
+        Text(
+            stringResource(id = R.string.providers),
+            Modifier.padding(top = 16.dp, start = 16.dp),
+            style = MaterialTheme.typography.h2
+        )
+        Text(
+            stringResource(id = R.string.providers_sponsor),
+            Modifier.padding(top = 8.dp, bottom = 8.dp, start = 24.dp),
+            style = MaterialTheme.typography.subtitle1.copy(fontStyle = FontStyle.Italic)
+        )
+        if (providers.isNotEmpty()) {
+            val flatRate = providers.filter {
+                it?.type == "flatrate"
+            }
+            if (flatRate.isNotEmpty()) {
+                providerCard(flatRate, R.string.flatrate)
+            }
+            val rent = providers.filter {
+                it?.type == "rent"
+            }
+            if (rent.isNotEmpty()) {
+                providerCard(rent, R.string.rent)
+            }
+            val buy = providers.filter {
+                it?.type == "buy"
+            }
+            if (buy.isNotEmpty()) {
+                providerCard(buy, R.string.buy)
+            }
+        } else {
+            providerCard(emptyList(), R.string.noProvidersFound)
+        }
+    }
+}
+
+@Composable
+fun providerCard(providers: List<Provider?>, listType: Int) {
+    Column() {
+        Text(
+            stringResource(id = listType),
+            Modifier.padding(top = 16.dp, bottom = 8.dp, start = 16.dp),
+            color = MaterialTheme.colors.secondary,
+            style = MaterialTheme.typography.h3
+        )
+        if (providers.isNotEmpty()) {
+            Divider(Modifier.padding(start = 16.dp, end = 16.dp))
+            Column(Modifier.padding(start = 32.dp, top = 8.dp, bottom = 16.dp)) {
+                providers.forEach { prov ->
+                    if (prov != null) {
+                        ProviderBadge(prov)
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun ProviderBadge(prov: Provider) {
+    Column() {
+        Text(prov.name.toString())
+    }
+}
+
+@Composable
 fun BackDrop(movie: Movie?) {
-    val backDropPainter = rememberImagePainter(data = movie?.backdrop, builder = {size(OriginalSize)})
+    val backDropPainter =
+        rememberImagePainter(data = movie?.backdrop, builder = { size(OriginalSize) })
     Image(
         painter = backDropPainter,
         contentDescription = movie?.title,
@@ -242,7 +321,8 @@ fun BackDrop(movie: Movie?) {
         Box(
             Modifier
                 .height(280.dp)
-                .fillMaxWidth(), Alignment.Center) {
+                .fillMaxWidth(), Alignment.Center
+        ) {
             LoadingIndicator()
         }
     }
@@ -250,7 +330,8 @@ fun BackDrop(movie: Movie?) {
         Box(
             Modifier
                 .height(280.dp)
-                .fillMaxWidth(), Alignment.Center) {
+                .fillMaxWidth(), Alignment.Center
+        ) {
             Icon(
                 Icons.Default.MovieCreation,
                 movie?.title,
@@ -306,7 +387,7 @@ fun TitleRow(movie: Movie?) {
 @Composable
 private fun PreviewDetailScreenBody() {
     PopularMoviesTheme() {
-        DetailScreenBody(Modifier.padding(8.dp), testMovie, testCastList)
+        DetailScreenBody(Modifier.padding(8.dp), testMovie, testCastList, emptyList())
     }
 }
 

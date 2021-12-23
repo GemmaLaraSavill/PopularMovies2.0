@@ -1,6 +1,7 @@
 package com.gemma.popularmovies.data
 
 import com.gemma.popularmovies.domain.model.Movie
+import com.gemma.popularmovies.domain.model.Provider
 import com.gemma.popularmovies.domain.model.Role
 import com.gemma.popularmovies.domain.model.Trailer
 import kotlinx.coroutines.flow.Flow
@@ -30,4 +31,10 @@ interface MovieDataSource {
     suspend fun getMovieCast(movieId: Int): Flow<List<Role?>>
 
     suspend fun insertCast(roleList: List<Role?>)
+
+    suspend fun getProviders(movieId: Int): Flow<List<Provider?>>
+
+    suspend fun getFreshProviders(movieId: Int): List<Provider?>
+
+    suspend fun insertProviders(providerList: List<Provider?>)
 }

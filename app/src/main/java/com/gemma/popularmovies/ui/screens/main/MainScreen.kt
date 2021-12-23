@@ -104,9 +104,11 @@ fun PopularMoviesTopAppBar(
                     Icon(Icons.Filled.Movie, contentDescription = "Popular movies")
                 }
             }
-            IconButton(onClick = { snackbarCoroutineScope.launch {
-                scaffoldState.snackbarHostState.showSnackbar("TODO implement search")
-            } }) {
+            IconButton(onClick = {
+                snackbarCoroutineScope.launch {
+                    scaffoldState.snackbarHostState.showSnackbar("TODO implement search")
+                }
+            }) {
                 Icon(Icons.Filled.Search, contentDescription = "Search movies")
             }
         }
@@ -123,9 +125,11 @@ fun BodyContent(
     navController: NavController,
     reload: () -> Unit
 ) {
-    Box(modifier = modifier
-        .background(MaterialTheme.colors.background)
-        .fillMaxHeight()) {
+    Box(
+        modifier = modifier
+            .background(MaterialTheme.colors.background)
+            .fillMaxHeight()
+    ) {
         if (listDisplayed == ListType.Popular) {
             if (moviePosterList.isEmpty()) {
                 EmptyListWarning(
@@ -174,16 +178,23 @@ fun PosterItem(poster: String?, title: String?, movie_id: Int, onPosterClick: (I
     val posterPainter = rememberImagePainter(
         data = poster,
         builder = { size(OriginalSize) })
-    Image(
-        painter = posterPainter,
-        contentDescription = title,
-        contentScale = ContentScale.Crop,
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable(onClick = {
-                onPosterClick(movie_id)
-            })
-    )
+    Box(
+        Modifier
+            .border(width = 1.dp, color = MaterialTheme.colors.secondary)
+            .height(278.dp)
+            .width(185.dp)
+    ) {
+        Image(
+            painter = posterPainter,
+            contentDescription = title,
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable(onClick = {
+                    onPosterClick(movie_id)
+                })
+        )
+    }
     var imageState = posterPainter.state
     if (imageState is ImagePainter.State.Loading) {
         Box(
@@ -200,7 +211,8 @@ fun PosterItem(poster: String?, title: String?, movie_id: Int, onPosterClick: (I
             Modifier
                 .height(278.dp)
                 .width(185.dp)
-                .border(1.dp, MaterialTheme.colors.secondary.copy(alpha = 0.1F)
+                .border(
+                    1.dp, MaterialTheme.colors.secondary.copy(alpha = 0.1F)
                 ),
             Alignment.Center
         ) {

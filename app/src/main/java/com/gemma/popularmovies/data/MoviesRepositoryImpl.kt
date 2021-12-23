@@ -1,6 +1,7 @@
 package com.gemma.popularmovies.data
 
 import com.gemma.popularmovies.domain.model.Movie
+import com.gemma.popularmovies.domain.model.Provider
 import com.gemma.popularmovies.domain.model.Role
 import com.gemma.popularmovies.domain.model.Trailer
 import com.gemma.popularmovies.domain.repository.DataRefreshManager
@@ -113,6 +114,29 @@ class MoviesRepositoryImpl @Inject constructor(
         val castList: List<Role?> = movieNetworkDataSource.getFreshMovieCast(movieId)
         // insert into local data source
         movieLocalDataSource.insertCast(castList)
+    }
+
+    override suspend fun getMovieProviders(movieId: Int): Flow<List<Provider?>> {
+        // get providers for this movie from the source of truth = database
+        val movieProviders = movieLocalDataSource.getProviders(movieId).map {
+            when {
+                it.isEmpty() -> {
+                    insertMovieProvidersToCache(movieId)
+                    it
+                }
+                else -> {
+                    it
+                }
+            }
+        }
+        return movieProviders
+    }
+
+    private suspend fun insertMovieProvidersToCache(movieId: Int) {
+        // get providers from network data source
+        val providerList: List<Provider?> = movieNetworkDataSource.getFreshProviders(movieId)
+        // insert into local data source
+        movieLocalDataSource.insertProviders(providerList)
     }
 
 }
