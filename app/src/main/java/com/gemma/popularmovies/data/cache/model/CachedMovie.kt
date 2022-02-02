@@ -16,7 +16,8 @@ data class CachedMovie(
     val overview: String?,
     val rating: String?,
     val release_date: String?,
-    val favorite: Int = 0
+    val favorite: Int = 0,
+    val page: Int = 0
 ) {
-    fun toDomain(trailer: Trailer?) = Movie(movie_id, title, poster, backdrop, overview, rating, release_date, favorite, trailer)
+    fun toDomain(trailer: Trailer?) = Movie(movie_id, title, poster, backdrop, overview, rating, release_date, favorite, trailer, page)
 }

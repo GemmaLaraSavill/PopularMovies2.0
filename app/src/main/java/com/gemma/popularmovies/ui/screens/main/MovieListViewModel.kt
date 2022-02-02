@@ -2,6 +2,8 @@ package com.gemma.popularmovies.ui.screens.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import com.gemma.popularmovies.domain.model.Movie
 import com.gemma.popularmovies.domain.usecase.GetMovieListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,7 +16,7 @@ import javax.inject.Inject
 class MovieListViewModel @Inject constructor(private val getMovieListUseCase: GetMovieListUseCase) :
     ViewModel() {
 
-    var movieList: Flow<List<Movie>>
+    var movieList: Flow<PagingData<Movie>>
     var favoriteMovieList: Flow<List<Movie>>
 
     init {
@@ -25,10 +27,11 @@ class MovieListViewModel @Inject constructor(private val getMovieListUseCase: Ge
     /**
      * Gets a list of popular movies
      */
-    private fun loadMovies(): Flow<List<Movie>> {
-        var movieListFromRepo: Flow<List<Movie>> = emptyFlow()
+    private fun loadMovies(): Flow<PagingData<Movie>> {
+        var movieListFromRepo: Flow<PagingData<Movie>> = emptyFlow()
         viewModelScope.launch {
             movieListFromRepo = getMovieListUseCase.getMostPopularMovies()
+                .cachedIn(viewModelScope)
         }
         return movieListFromRepo
     }
@@ -47,6 +50,14 @@ class MovieListViewModel @Inject constructor(private val getMovieListUseCase: Ge
         viewModelScope.launch {
             getMovieListUseCase.reloadMovies()
         }
+    }
+
+    private var movieListScrollState = 0
+    fun saveMovieListScrollState(scrollIndex: Int) {
+        movieListScrollState = scrollIndex
+    }
+    fun getMovieListScrollState():Int {
+        return movieListScrollState
     }
 }
 

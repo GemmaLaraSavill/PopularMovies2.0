@@ -1,5 +1,6 @@
 package com.gemma.popularmovies.domain.repository
 
+import androidx.paging.PagingData
 import com.gemma.popularmovies.data.MoviesRepositoryImpl
 import com.gemma.popularmovies.domain.model.Movie
 import com.gemma.popularmovies.domain.model.Provider
@@ -12,7 +13,7 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Singleton
 
 interface MoviesRepository {
-    suspend fun getMostPopularMovies(): Flow<List<Movie>>
+    suspend fun getMostPopularMovies(): Flow<PagingData<Movie>>
     suspend fun getFavoriteMovies(): Flow<List<Movie>>
     suspend fun getMovieById(movieId: Int): Flow<Movie?>
     suspend fun toggleFavorite(movieId: Int)

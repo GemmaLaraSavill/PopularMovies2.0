@@ -12,5 +12,5 @@ data class MovieDto(
     @SerializedName("vote_average") val rating: String,
     @SerializedName("release_date") val release_date: String
 ) {
-    fun toDomain() = Movie(movie_id, title, poster,backdrop, overview, rating, release_date, 0, null)
+    fun toDomain(page:Int) = Movie(movie_id, title, poster,backdrop, overview, rating, release_date, 0, null, page)
 }

@@ -1,5 +1,9 @@
 package com.gemma.popularmovies.data
 
+import androidx.paging.ExperimentalPagingApi
+import androidx.paging.PagingData
+import com.gemma.popularmovies.data.cache.model.CachedMovieMinimal
+import com.gemma.popularmovies.data.network.MovieRemoteMediator
 import com.gemma.popularmovies.domain.model.Movie
 import com.gemma.popularmovies.domain.model.Provider
 import com.gemma.popularmovies.domain.model.Role
@@ -12,9 +16,9 @@ interface MovieDataSource {
 
     fun getFavoriteMovies(): Flow<List<Movie>>
 
-    suspend fun insertFreshPopularMovies(popularMovies: List<Movie>)
+    suspend fun refreshMovies(popularMovies: List<Movie>)
 
-    suspend fun getFreshPopularMovies(): List<Movie>
+    suspend fun getFreshPopularMovies(page: Int): List<Movie>
 
     suspend fun getMovieById(movieId: Int): Flow<Movie?>
 
@@ -37,4 +41,11 @@ interface MovieDataSource {
     suspend fun getFreshProviders(movieId: Int): List<Provider?>
 
     suspend fun insertProviders(providerList: List<Provider?>)
+
+    @ExperimentalPagingApi
+    suspend fun getPagedMovies(moviesRemoteMediator: MovieRemoteMediator): Flow<PagingData<CachedMovieMinimal>>
+
+    suspend fun addFreshPopularMovies(movies: List<Movie>)
+
+    suspend fun countMovies(): Int
 }

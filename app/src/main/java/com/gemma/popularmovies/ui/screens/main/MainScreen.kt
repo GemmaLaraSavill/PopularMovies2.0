@@ -2,10 +2,7 @@ package com.gemma.popularmovies.ui.screens.main
 
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyVerticalGrid
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
@@ -15,9 +12,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.flowWithLifecycle
 import androidx.navigation.NavController
+import androidx.paging.LoadState
+import androidx.paging.compose.LazyPagingItems
+import androidx.paging.compose.collectAsLazyPagingItems
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.ImagePainter
 import coil.compose.rememberImagePainter
@@ -41,8 +45,12 @@ enum class ListType {
 @Composable
 fun MainScreen(navController: NavController, viewModel: MovieListViewModel) {
 
+    val lifecycleOwner: LifecycleOwner = LocalLifecycleOwner.current
+
     // state
-    val movieList: List<Movie> by viewModel.movieList.collectAsState(initial = emptyList())
+    val movieList: LazyPagingItems<Movie> =
+        viewModel.movieList.flowWithLifecycle(lifecycleOwner.lifecycle, Lifecycle.State.STARTED)
+            .collectAsLazyPagingItems()
 
     val favMovieList: List<Movie> by viewModel.favoriteMovieList.collectAsState(initial = emptyList())
 
@@ -68,8 +76,8 @@ fun MainScreen(navController: NavController, viewModel: MovieListViewModel) {
             movieList,
             favMovieList,
             navController,
-            reload = { viewModel.reloadMovies() }
-        )
+            viewModel
+        ) { viewModel.reloadMovies() }
     }
 }
 
@@ -120,9 +128,10 @@ fun PopularMoviesTopAppBar(
 fun BodyContent(
     modifier: Modifier,
     listDisplayed: ListType,
-    moviePosterList: List<Movie>,
+    moviePosterList: LazyPagingItems<Movie>,
     favoriteMovieList: List<Movie>,
     navController: NavController,
+    viewModel: MovieListViewModel,
     reload: () -> Unit
 ) {
     Box(
@@ -131,21 +140,26 @@ fun BodyContent(
             .fillMaxHeight()
     ) {
         if (listDisplayed == ListType.Popular) {
-            if (moviePosterList.isEmpty()) {
-                EmptyListWarning(
-                    modifier
-                        .fillMaxSize()
-                        .padding(32.dp)
-                        .align(Alignment.Center),
-                    message = stringResource(R.string.noMoviesFound),
-                    actionText = stringResource(R.string.tryAgain),
-                    onButtonClick = { reload() })
-            } else {
-                PosterGrid(
-                    moviePosterList,
-                    onPosterClick = { navController.navigate(MovieAppScreen.DetailScreen.withArgs(it)) }
-                )
-            }
+                if (moviePosterList.itemCount == 0) {
+                    EmptyListWarning(
+                        modifier
+                            .fillMaxSize()
+                            .padding(32.dp)
+                            .align(Alignment.Center),
+                        message = stringResource(R.string.noMoviesFound),
+                        actionText = stringResource(R.string.tryAgain),
+                        onButtonClick = { reload() })
+                } else {
+                    val scrollingListPosition = viewModel.getMovieListScrollState()
+                    PosterGrid(
+                        moviePosterList,
+                        scrollingListPosition,
+                        onPosterClick = { movieId, scrollId ->
+                            navController.navigate(MovieAppScreen.DetailScreen.withArgs(movieId))
+                            viewModel.saveMovieListScrollState(scrollId)
+                        }
+                    )
+                }
         } else {
             Box(
                 modifier = Modifier.padding(4.dp)
@@ -162,19 +176,60 @@ fun BodyContent(
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun PosterGrid(movies: List<Movie>, onPosterClick: (Int) -> Unit) {
+fun PosterGrid(
+    movies: LazyPagingItems<Movie>,
+    scrollingListPosition: Int,
+    onPosterClick: (Int, Int) -> Unit
+) {
+    var savedListState = rememberLazyListState(scrollingListPosition)
     LazyVerticalGrid(
-        cells = GridCells.Fixed(2)
-    ) {
-        items(items = movies) { movie ->
-            PosterItem(movie.poster!!, movie.title, movie.movie_id, onPosterClick)
+        cells = GridCells.Fixed(2),
+        state = savedListState,
+        content = {
+            items(movies.itemCount) { index ->
+                movies[index]?.let {
+                    PosterItem(
+                        it.poster,
+                        it.title,
+                        it.movie_id,
+                        savedListState.firstVisibleItemIndex,
+                        onPosterClick
+                    )
+                }
+            }
+            movies.apply {
+                when {
+                    loadState.refresh is
+                            LoadState.Loading -> {
+                        item { LoadingIndicator() }
+                        item { LoadingIndicator() }
+                    }
+                    loadState.append is
+                            LoadState.Loading -> {
+                        item { LoadingIndicator() }
+                        item { LoadingIndicator() }
+                    }
+                    loadState.refresh is
+                            LoadState.Error -> {
+                    }
+                    loadState.append is
+                            LoadState.Error -> {
+                    }
+                }
+            }
         }
-    }
+    )
 }
 
 @ExperimentalCoilApi
 @Composable
-fun PosterItem(poster: String?, title: String?, movie_id: Int, onPosterClick: (Int) -> Unit) {
+fun PosterItem(
+    poster: String?,
+    title: String?,
+    movieId: Int,
+    scrollId: Int,
+    onPosterClick: (Int, Int) -> Unit
+) {
     val posterPainter = rememberImagePainter(
         data = poster,
         builder = { size(OriginalSize) })
@@ -191,7 +246,7 @@ fun PosterItem(poster: String?, title: String?, movie_id: Int, onPosterClick: (I
             modifier = Modifier
                 .fillMaxWidth()
                 .clickable(onClick = {
-                    onPosterClick(movie_id)
+                    onPosterClick(movieId, scrollId)
                 })
         )
     }

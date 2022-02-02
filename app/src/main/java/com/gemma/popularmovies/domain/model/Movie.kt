@@ -11,7 +11,8 @@ data class Movie(
     val rating: String?,
     val release_date: String?,
     var favorite: Int = 0,
-    var trailer: Trailer?
+    var trailer: Trailer?,
+    val page: Int
 ) {
-    fun toCache() = CachedMovie(movie_id, title, poster, backdrop, overview, rating, release_date, favorite)
+    fun toCache() = CachedMovie(movie_id, title, poster, backdrop, overview, rating, release_date, favorite, page)
 }

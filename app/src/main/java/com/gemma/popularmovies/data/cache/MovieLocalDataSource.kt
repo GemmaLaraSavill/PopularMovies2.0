@@ -1,16 +1,22 @@
 package com.gemma.popularmovies.data.cache
 
+import androidx.paging.ExperimentalPagingApi
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
 import com.gemma.popularmovies.data.MovieDataSource
 import com.gemma.popularmovies.data.cache.daos.CastDao
 import com.gemma.popularmovies.data.cache.daos.MovieDao
 import com.gemma.popularmovies.data.cache.daos.ProviderDao
 import com.gemma.popularmovies.data.cache.model.*
 import com.gemma.popularmovies.data.network.ApiConstants
+import com.gemma.popularmovies.data.network.MovieRemoteMediator
 import com.gemma.popularmovies.domain.model.Movie
 import com.gemma.popularmovies.domain.model.Provider
 import com.gemma.popularmovies.domain.model.Role
 import com.gemma.popularmovies.domain.model.Trailer
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
@@ -58,7 +64,9 @@ class MovieLocalDataSource @Inject constructor(
     }
 
     override suspend fun getTrailer(movieId: Int): Flow<Trailer?> {
-        TODO("Not yet implemented")
+        // Not required for the local data source as the movie is extracted
+        // in getMovieById() as a CachedMovieAggregate that holds movie and trailer
+        return emptyFlow();
     }
 
     override suspend fun insertTrailer(movieId: Int, trailer: Trailer?) {
@@ -84,10 +92,10 @@ class MovieLocalDataSource @Inject constructor(
     }
 
     /**
-     * Insert popular movies to local data source
+     * Refresh popular movies in local data source
      */
-    override suspend fun insertFreshPopularMovies(popularMovies: List<Movie>) {
-
+    override suspend fun refreshMovies(popularMovies: List<Movie>) {
+        // for the DB
         val popularMoviesToDb = mutableListOf<CachedMovie>()
 
         // convert API data to DB format
@@ -101,17 +109,44 @@ class MovieLocalDataSource @Inject constructor(
                 movie.overview,
                 movie.rating,
                 movie.release_date,
-                0
+                0,
+                movie.page
             )
             popularMoviesToDb.add(cachedMovie)
         }
-        movieDao.insertFreshMovies(popularMoviesToDb)
+        movieDao.refreshMovies(popularMoviesToDb)
     }
 
-
-    override suspend fun getFreshPopularMovies(): List<Movie> {
+    override suspend fun getFreshPopularMovies(page: Int): List<Movie> {
         // Not required for the local data source = source of truth
         return emptyList()
+    }
+
+    override suspend fun addFreshPopularMovies(movies: List<Movie>) {
+        // for the DB
+        val popularMoviesToDb = mutableListOf<CachedMovie>()
+
+        // convert API data to DB format
+        var cachedMovie: CachedMovie
+        for (movie in movies) {
+            cachedMovie = CachedMovie(
+                movie.movie_id,
+                movie.title,
+                movie.poster,
+                movie.backdrop,
+                movie.overview,
+                movie.rating,
+                movie.release_date,
+                0,
+                movie.page
+            )
+            popularMoviesToDb.add(cachedMovie)
+        }
+        movieDao.insertNewMovies(popularMoviesToDb)
+    }
+
+    override suspend fun countMovies(): Int {
+        return movieDao.countMovies()
     }
 
     override suspend fun getMovieCast(movieId: Int): Flow<List<Role?>> {
@@ -209,6 +244,22 @@ class MovieLocalDataSource @Inject constructor(
         // insert into DB
         providerDao.insertProviders(providersToDb)
         providerDao.insertProvidersForMovie(aMovieProvidersToDb)
+    }
+
+    @ExperimentalPagingApi
+    override suspend fun getPagedMovies(moviesRemoteMediator: MovieRemoteMediator): Flow<PagingData<CachedMovieMinimal>> {
+        // setup the pager
+        return Pager(
+            config = PagingConfig(
+                pageSize = 20,
+                enablePlaceholders = true
+            ),
+            remoteMediator = moviesRemoteMediator,
+            pagingSourceFactory = {
+                // source-of-truth
+                movieDao.getMoviesPagingSource()
+            }
+        ).flow
     }
 
 }

@@ -1,5 +1,10 @@
 package com.gemma.popularmovies.data
 
+import androidx.paging.ExperimentalPagingApi
+import androidx.paging.PagingData
+import androidx.paging.map
+import com.gemma.popularmovies.data.network.ApiConstants
+import com.gemma.popularmovies.data.network.MovieRemoteMediator
 import com.gemma.popularmovies.domain.model.Movie
 import com.gemma.popularmovies.domain.model.Provider
 import com.gemma.popularmovies.domain.model.Role
@@ -21,24 +26,31 @@ class MoviesRepositoryImpl @Inject constructor(
     private val dataRefreshManagerImpl: DataRefreshManager
 ) : MoviesRepository {
 
+    @ExperimentalPagingApi
+    val moviesRemoteMediator = MovieRemoteMediator(
+        movieLocalDataSource,
+        movieNetworkDataSource,
+        dataRefreshManagerImpl
+    )
 
-    override suspend fun getMostPopularMovies(): Flow<List<Movie>> {
-        val movieList = movieLocalDataSource.getPopularMovies().map {
-            when {
-                it.isEmpty() -> {
-                    insertFreshPopularMoviesToCache()
-                    it
-                }
-                dataRefreshManagerImpl.checkIfRefreshNeeded() -> {
-                    insertFreshPopularMoviesToCache()
-                    it
-                }
-                else -> {
-                    it
+
+    @ExperimentalPagingApi
+    override suspend fun getMostPopularMovies(): Flow<PagingData<Movie>> {
+
+        // return the paging source
+        val mostPopularMovies =
+            movieLocalDataSource.getPagedMovies(moviesRemoteMediator).map { pagingData ->
+                pagingData.map {
+                    it.poster = ApiConstants.thumbUrl + ApiConstants.thumbSize185 + it.poster
+                    it.toDomain()
                 }
             }
-        }
-        return movieList
+        return mostPopularMovies
+    }
+
+    @ExperimentalPagingApi
+    override suspend fun reloadMovies() {
+        moviesRemoteMediator.reload()
     }
 
     /**
@@ -81,17 +93,6 @@ class MoviesRepositoryImpl @Inject constructor(
         movieLocalDataSource.insertMovie(fullMovieData)
     }
 
-    private suspend fun insertFreshPopularMoviesToCache() {
-        // get fresh movies from network data source
-        val popularMovies = movieNetworkDataSource.getFreshPopularMovies()
-        // insert into local data source
-        movieLocalDataSource.insertFreshPopularMovies(popularMovies)
-    }
-
-    override suspend fun reloadMovies() {
-        // get fresh movies from network data source
-        insertFreshPopularMoviesToCache()
-    }
 
     override suspend fun getMovieCast(movieId: Int): Flow<List<Role?>> {
         // get character list from the source of truth = database

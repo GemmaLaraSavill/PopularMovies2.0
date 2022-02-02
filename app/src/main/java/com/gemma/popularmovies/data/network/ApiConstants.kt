@@ -41,4 +41,10 @@ object ApiConstants {
     const val thumbSize342 = "w342"
     const val thumbSize500 = "w500"
     const val thumbSize780 = "w780"
+
+    // related to paging
+    const val STARTING_PAGE_INDEX = 1
+    const val ENDING_PAGE_INDEX = 50
+    const val NUM_PAGES_IN_CACHE = 3
+    const val NUM_RESULTS_PER_PAGE = 20
 }

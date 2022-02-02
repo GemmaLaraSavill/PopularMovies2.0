@@ -11,5 +11,5 @@ data class CachedMovieAggregate(
     val trailer: CachedTrailer?,
 ) {
     fun toDomain() =
-        Movie(movie.movie_id, movie.title, movie.poster, movie.backdrop, movie.overview, movie.rating, movie.release_date, movie.favorite, trailer?.toDomain())
+        Movie(movie.movie_id, movie.title, movie.poster, movie.backdrop, movie.overview, movie.rating, movie.release_date, movie.favorite, trailer?.toDomain(), movie.page)
 }

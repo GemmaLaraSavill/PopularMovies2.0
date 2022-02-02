@@ -448,7 +448,8 @@ val testMovie = Movie(
     "7.7",
     "2021-09-01",
     0,
-    testTrailer
+    testTrailer,
+    1
 )
 
 val testCastList = listOf<Role>(

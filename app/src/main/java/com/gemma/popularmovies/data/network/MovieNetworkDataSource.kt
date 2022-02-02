@@ -1,7 +1,11 @@
 package com.gemma.popularmovies.data.network
 
 import android.content.Context
+import android.util.Log
+import androidx.paging.ExperimentalPagingApi
+import androidx.paging.PagingData
 import com.gemma.popularmovies.data.MovieDataSource
+import com.gemma.popularmovies.data.cache.model.CachedMovieMinimal
 import com.gemma.popularmovies.data.network.model.TrailerDto
 import com.gemma.popularmovies.data.network.model.TrailersPageDto
 import com.gemma.popularmovies.domain.model.Movie
@@ -28,17 +32,17 @@ class MovieNetworkDataSource @Inject constructor(private val moviesApiService: M
         return emptyFlow()
     }
 
-    override suspend fun insertFreshPopularMovies(popularMovies: List<Movie>) {
+    override suspend fun refreshMovies(popularMovies: List<Movie>) {
         // Not required for the remote data source
     }
 
     /**
-     * Load 1 page of most popular movies from the API
+     * Load pages of most popular movies from the API
      */
-    override suspend fun getFreshPopularMovies(): List<Movie> {
+    override suspend fun getFreshPopularMovies(page: Int): List<Movie> {
         return if (NetworkConnectivityManager.isNetworkConnected(context)) {
-            var popularMovies: List<Movie> = moviesApiService.getPopularMovies(1).movieList.map {
-                it.toDomain()
+            var popularMovies: List<Movie> = moviesApiService.getPopularMovies(page).movieList.map {
+                it.toDomain(page)
             }
             popularMovies
         } else {
@@ -46,10 +50,11 @@ class MovieNetworkDataSource @Inject constructor(private val moviesApiService: M
         }
     }
 
+
     override suspend fun getMovieById(movieId: Int): Flow<Movie?> {
         return if (NetworkConnectivityManager.isNetworkConnected(context)) {
             var movieData = moviesApiService.getFullMovieData(movieId)
-            flow { emit(movieData.toDomain()) }
+            flow { emit(movieData.toDomain(0)) }
         } else {
             emptyFlow()
         }
@@ -161,6 +166,21 @@ class MovieNetworkDataSource @Inject constructor(private val moviesApiService: M
 
     override suspend fun insertProviders(providerList: List<Provider?>) {
         // Not required for the remote data source
+    }
+
+    @ExperimentalPagingApi
+    override suspend fun getPagedMovies(moviesRemoteMediator: MovieRemoteMediator): Flow<PagingData<CachedMovieMinimal>> {
+        // Not required for the remote data source
+        return emptyFlow()
+    }
+
+    override suspend fun addFreshPopularMovies(movies: List<Movie>) {
+        // Not required for the remote data source
+    }
+
+    override suspend fun countMovies(): Int {
+        // Not required for the remote data source
+        return 0
     }
 
 

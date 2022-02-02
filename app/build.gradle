@@ -80,6 +80,12 @@ dependencies {
     implementation "androidx.preference:preference-ktx:$preferences_version"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
 
+    // Paging
+    implementation "androidx.paging:paging-runtime-ktx:$paging_version"
+    implementation "androidx.room:room-paging:$room_version"
+    // optional - Jetpack Compose integration
+    implementation "androidx.paging:paging-compose:$paging_compose_version"
+
     // Testing Dependencies
     testImplementation "junit:junit:$junit_version"
     testImplementation "com.squareup.okhttp3:mockwebserver:$mockwebserver_version"
