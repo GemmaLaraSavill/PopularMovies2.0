@@ -14,6 +14,6 @@ interface CastDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertArtists(artist: List<CachedArtist>)
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertRoles(role: List<CachedRole>)
 }

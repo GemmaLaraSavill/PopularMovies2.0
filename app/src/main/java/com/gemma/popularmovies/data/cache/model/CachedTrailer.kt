@@ -16,7 +16,7 @@ import com.gemma.popularmovies.domain.model.Trailer
     indices = [Index("movie_id")]
 )
 data class CachedTrailer(
-    @PrimaryKey val movie_id: Int,
+    @PrimaryKey(autoGenerate = true) val movie_id: Int,
     val trailer_id: String,
     val key: String,
     val site: String,

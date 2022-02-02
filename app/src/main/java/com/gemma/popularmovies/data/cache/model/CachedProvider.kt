@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "provider",
     indices = [Index(value = ["provider_id"], unique = true)])
 data class CachedProvider(
-    @PrimaryKey val provider_id: Int,
+    @PrimaryKey(autoGenerate = true) val provider_id: Int,
     val name: String?,
     var logo: String?
 )

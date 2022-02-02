@@ -16,7 +16,8 @@ import com.gemma.popularmovies.data.cache.model.*
         CachedProvider::class,
         CachedProviderForMovie::class]
     ,
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 abstract class MovieDatabase : RoomDatabase() {
     abstract fun movieDao(): MovieDao

@@ -9,7 +9,7 @@ import com.gemma.popularmovies.domain.model.Trailer
 @Entity(tableName = "movies",
     indices = [Index(value = ["movie_id"], unique = true)])
 data class CachedMovie(
-    @PrimaryKey val movie_id: Int,
+    @PrimaryKey(autoGenerate = true) val movie_id: Int,
     val title: String?,
     var poster: String?,
     var backdrop: String?,
