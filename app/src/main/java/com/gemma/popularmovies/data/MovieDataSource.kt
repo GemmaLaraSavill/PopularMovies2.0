@@ -12,13 +12,18 @@ import kotlinx.coroutines.flow.Flow
 
 interface MovieDataSource {
 
-    suspend fun getPopularMovies(): Flow<List<Movie>>
+    @ExperimentalPagingApi
+    suspend fun getPagedMovies(moviesRemoteMediator: MovieRemoteMediator): Flow<PagingData<CachedMovieMinimal>>
 
     fun getFavoriteMovies(): Flow<List<Movie>>
 
     suspend fun refreshMovies(popularMovies: List<Movie>)
 
     suspend fun getFreshPopularMovies(page: Int): List<Movie>
+
+    suspend fun addFreshPopularMovies(movies: List<Movie>)
+
+    suspend fun countMovies(): Int
 
     suspend fun getMovieById(movieId: Int): Flow<Movie?>
 
@@ -41,11 +46,4 @@ interface MovieDataSource {
     suspend fun getFreshProviders(movieId: Int): List<Provider?>
 
     suspend fun insertProviders(providerList: List<Provider?>)
-
-    @ExperimentalPagingApi
-    suspend fun getPagedMovies(moviesRemoteMediator: MovieRemoteMediator): Flow<PagingData<CachedMovieMinimal>>
-
-    suspend fun addFreshPopularMovies(movies: List<Movie>)
-
-    suspend fun countMovies(): Int
 }

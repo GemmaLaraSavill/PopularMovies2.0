@@ -22,19 +22,6 @@ import javax.inject.Inject
  */
 class MovieNetworkDataSource @Inject constructor(private val moviesApiService: MoviesApiService, private val context: Context) : MovieDataSource {
 
-    override suspend fun getPopularMovies(): Flow<List<Movie>> {
-        // Not required for the remote data source
-        return emptyFlow()
-    }
-
-    override fun getFavoriteMovies(): Flow<List<Movie>> {
-        // Not required for the remote data source
-        return emptyFlow()
-    }
-
-    override suspend fun refreshMovies(popularMovies: List<Movie>) {
-        // Not required for the remote data source
-    }
 
     /**
      * Load pages of most popular movies from the API
@@ -50,7 +37,6 @@ class MovieNetworkDataSource @Inject constructor(private val moviesApiService: M
         }
     }
 
-
     override suspend fun getMovieById(movieId: Int): Flow<Movie?> {
         return if (NetworkConnectivityManager.isNetworkConnected(context)) {
             var movieData = moviesApiService.getFullMovieData(movieId)
@@ -58,15 +44,6 @@ class MovieNetworkDataSource @Inject constructor(private val moviesApiService: M
         } else {
             emptyFlow()
         }
-    }
-
-
-    override suspend fun insertMovie(fullMovieData: Flow<Movie?>) {
-        // Not required for the remote data source
-    }
-
-    override suspend fun toggleFavorite(movieId: Int) {
-        // Not required for the remote data source
     }
 
     /**
@@ -96,10 +73,6 @@ class MovieNetworkDataSource @Inject constructor(private val moviesApiService: M
         }
     }
 
-    override suspend fun insertTrailer(movieId:Int, trailer: Trailer?) {
-        // Not required for the remote data source
-    }
-
     /**
      * Load 10 artist roles for this movie from the API
      */
@@ -112,20 +85,6 @@ class MovieNetworkDataSource @Inject constructor(private val moviesApiService: M
         } else {
             return emptyList()
         }
-    }
-
-    override suspend fun getMovieCast(movieId: Int): Flow<List<Role?>> {
-        // Not required for the remote data source
-        return emptyFlow()
-    }
-
-    override suspend fun insertCast(roleList: List<Role?>) {
-        // Not required for the remote data source
-    }
-
-    override suspend fun getProviders(movieId: Int): Flow<List<Provider?>> {
-        // Not required for the remote data source
-        return emptyFlow()
     }
 
     override suspend fun getFreshProviders(movieId: Int): List<Provider?> {
@@ -164,15 +123,59 @@ class MovieNetworkDataSource @Inject constructor(private val moviesApiService: M
         }
     }
 
-    override suspend fun insertProviders(providerList: List<Provider?>) {
-        // Not required for the remote data source
-    }
 
     @ExperimentalPagingApi
     override suspend fun getPagedMovies(moviesRemoteMediator: MovieRemoteMediator): Flow<PagingData<CachedMovieMinimal>> {
         // Not required for the remote data source
         return emptyFlow()
     }
+
+    override fun getFavoriteMovies(): Flow<List<Movie>> {
+        // Not required for the remote data source
+        return emptyFlow()
+    }
+
+    override suspend fun refreshMovies(popularMovies: List<Movie>) {
+        // Not required for the remote data source
+    }
+
+
+    override suspend fun insertMovie(fullMovieData: Flow<Movie?>) {
+        // Not required for the remote data source
+    }
+
+    override suspend fun toggleFavorite(movieId: Int) {
+        // Not required for the remote data source
+    }
+
+
+    override suspend fun insertTrailer(movieId:Int, trailer: Trailer?) {
+        // Not required for the remote data source
+    }
+
+
+
+    override suspend fun getMovieCast(movieId: Int): Flow<List<Role?>> {
+        // Not required for the remote data source
+        return emptyFlow()
+    }
+
+    override suspend fun insertCast(roleList: List<Role?>) {
+        // Not required for the remote data source
+    }
+
+    override suspend fun getProviders(movieId: Int): Flow<List<Provider?>> {
+        // Not required for the remote data source
+        return emptyFlow()
+    }
+
+
+
+    override suspend fun insertProviders(providerList: List<Provider?>) {
+        // Not required for the remote data source
+    }
+
+
 
     override suspend fun addFreshPopularMovies(movies: List<Movie>) {
         // Not required for the remote data source

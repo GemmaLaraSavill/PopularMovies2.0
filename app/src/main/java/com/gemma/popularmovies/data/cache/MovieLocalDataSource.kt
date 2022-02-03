@@ -29,15 +29,64 @@ class MovieLocalDataSource @Inject constructor(
     private val providerDao: ProviderDao
 ) : MovieDataSource {
 
-    override suspend fun getPopularMovies(): Flow<List<Movie>> {
-        return movieDao.getMostPopularMovies().map { movieList ->
-            movieList
-                .map {
-                    it.poster = ApiConstants.thumbUrl + ApiConstants.thumbSize185 + it.poster
-                    it.toDomain()
-                }
+
+    @ExperimentalPagingApi
+    override suspend fun getPagedMovies(moviesRemoteMediator: MovieRemoteMediator): Flow<PagingData<CachedMovieMinimal>> {
+        // setup the pager
+        return Pager(
+            config = PagingConfig(
+                pageSize = 20,
+                enablePlaceholders = true
+            ),
+            remoteMediator = moviesRemoteMediator,
+            pagingSourceFactory = {
+                // source-of-truth
+                movieDao.getMoviesPagingSource()
+            }
+        ).flow
+    }
+
+    override fun getFavoriteMovies(): Flow<List<Movie>> {
+        return movieDao.getFavoriteMovies().map { favList ->
+            favList.map {
+                it.poster = ApiConstants.thumbUrl + ApiConstants.thumbSize185 + it.poster
+                it.toDomain(null)
+            }
         }
     }
+
+    override suspend fun getFreshPopularMovies(page: Int): List<Movie> {
+        // Not required for the local data source = source of truth
+        return emptyList()
+    }
+
+    override suspend fun addFreshPopularMovies(movies: List<Movie>) {
+        // for the DB
+        val popularMoviesToDb = mutableListOf<CachedMovie>()
+
+        // convert API data to DB format
+        var cachedMovie: CachedMovie
+        for (movie in movies) {
+            cachedMovie = CachedMovie(
+                movie.movie_id,
+                movie.title,
+                movie.poster,
+                movie.backdrop,
+                movie.overview,
+                movie.rating,
+                movie.release_date,
+                0,
+                movie.page
+            )
+            popularMoviesToDb.add(cachedMovie)
+        }
+        movieDao.insertNewMovies(popularMoviesToDb)
+    }
+
+    override suspend fun countMovies(): Int {
+        return movieDao.countMovies()
+    }
+
 
     override suspend fun getMovieById(movieId: Int): Flow<Movie?> {
         return movieDao.getFullMovieData(movieId)
@@ -82,14 +131,7 @@ class MovieLocalDataSource @Inject constructor(
         }
     }
 
-    override fun getFavoriteMovies(): Flow<List<Movie>> {
-        return movieDao.getFavoriteMovies().map { favList ->
-            favList.map {
-                it.poster = ApiConstants.thumbUrl + ApiConstants.thumbSize185 + it.poster
-                it.toDomain(null)
-            }
-        }
-    }
+
 
     /**
      * Refresh popular movies in local data source
@@ -115,38 +157,6 @@ class MovieLocalDataSource @Inject constructor(
             popularMoviesToDb.add(cachedMovie)
         }
         movieDao.refreshMovies(popularMoviesToDb)
-    }
-
-    override suspend fun getFreshPopularMovies(page: Int): List<Movie> {
-        // Not required for the local data source = source of truth
-        return emptyList()
-    }
-
-    override suspend fun addFreshPopularMovies(movies: List<Movie>) {
-        // for the DB
-        val popularMoviesToDb = mutableListOf<CachedMovie>()
-
-        // convert API data to DB format
-        var cachedMovie: CachedMovie
-        for (movie in movies) {
-            cachedMovie = CachedMovie(
-                movie.movie_id,
-                movie.title,
-                movie.poster,
-                movie.backdrop,
-                movie.overview,
-                movie.rating,
-                movie.release_date,
-                0,
-                movie.page
-            )
-            popularMoviesToDb.add(cachedMovie)
-        }
-        movieDao.insertNewMovies(popularMoviesToDb)
-    }
-
-    override suspend fun countMovies(): Int {
-        return movieDao.countMovies()
     }
 
     override suspend fun getMovieCast(movieId: Int): Flow<List<Role?>> {
@@ -246,20 +256,5 @@ class MovieLocalDataSource @Inject constructor(
         providerDao.insertProvidersForMovie(aMovieProvidersToDb)
     }
 
-    @ExperimentalPagingApi
-    override suspend fun getPagedMovies(moviesRemoteMediator: MovieRemoteMediator): Flow<PagingData<CachedMovieMinimal>> {
-        // setup the pager
-        return Pager(
-            config = PagingConfig(
-                pageSize = 20,
-                enablePlaceholders = true
-            ),
-            remoteMediator = moviesRemoteMediator,
-            pagingSourceFactory = {
-                // source-of-truth
-                movieDao.getMoviesPagingSource()
-            }
-        ).flow
-    }
 
 }
