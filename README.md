@@ -16,11 +16,12 @@ When offline the data is provided from a local cache of data using an internal R
 Main changes from the 2016 version:
 
 - programming language now Kotlin instead of Java
-- SQL database now using Room
+- SQLite database now using Room
 - UI now using Jetpack Compose instead of XML layouts
 - still using threaded programming to take the load off the UI, but now using Kotlin coroutines and Flow instead of AsyncTask
 - now using dependency injection with Hilt
 - MVVM architecture
+- now using Jetpack Paging 3 library
 - Tests using AndroidJUnit4 and Okhttp3 MockWebServer
 - Working on more features, coming soon...
 
@@ -30,6 +31,19 @@ Screenshot of one the Composables in the app in Android Studio Preview mode:
 Preview video of the detail screen of the app, now showing movie cast:
 
 <img src="./github/app-preview-with-cast-and-providers.gif" width="320" />
+
+With Paging 3 Jetpack library user gets smooth infinite scrolling as we anticipate getting the pages from the server into cache (no waiting around for Movies to load) :
+
+<img src="./github/paging-3-db-and-network-manager.gif" />
+
+##### Here you can see how scrolling is triggering new pages being added to the local database (source-of-truth) and the Network Manager tab showing the transmission peaks (with some of delay) as the app gets the movies from the API
+
+
+
+<hr />
+
+
+
 
 ## Installation
 
