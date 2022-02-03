@@ -132,7 +132,7 @@ class MovieDaoAndroidTest {
         movieList.add(moviePopular2)
 
         // insert to movies
-        return@runBlocking movieDao.insertFreshMovies(movieList)
+        return@runBlocking movieDao.refreshMovies(movieList)
 
     }
 

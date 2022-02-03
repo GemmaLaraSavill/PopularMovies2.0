@@ -24,7 +24,8 @@ class FakeData {
         "7.7",
         "2021-09-01",
         0,
-        extraTrailer
+        extraTrailer,
+        1
     )
 
     fun getMovieById(): Movie {
@@ -43,7 +44,8 @@ class FakeData {
                 "7.1",
                 "2021-11-03",
                 0,
-                null
+                null,
+                1
             ),
             Movie(
                 0,
@@ -54,7 +56,8 @@ class FakeData {
                 null,
                 null,
                 1,
-                null
+                null,
+                1
             ),
             Movie(
                 0,
@@ -65,7 +68,8 @@ class FakeData {
                 null,
                 null,
                 0,
-                null
+                null,
+                1
             )
         )
     }
@@ -76,20 +80,23 @@ class FakeData {
                 0,
                 "title 1",
                 "https://image.tmdb.org/t/p/w185/2uNW4WbgBXL25BAbXGLnLqX71Sw.jpg",
-                0
+                0,
+                1
 
             ),
             CachedMovieMinimal(
                 0,
                 "title 2",
                 "https://image.tmdb.org/t/p/w185/kb4s0ML0iVZlG6wAKbbs9NAm6X.jpg",
-                0
+                0,
+                1
             ),
             CachedMovieMinimal(
                 0,
                 "title 3",
                 "https://image.tmdb.org/t/p/w185/d5NXSklXo0qyIYkgV94XAgMIckC.jpg",
-                0
+                0,
+                1
             )
         )
     }

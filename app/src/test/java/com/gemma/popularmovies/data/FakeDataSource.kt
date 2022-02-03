@@ -1,23 +1,21 @@
 package com.gemma.popularmovies.data
 
+import androidx.paging.ExperimentalPagingApi
+import androidx.paging.PagingData
+import com.gemma.popularmovies.data.cache.model.CachedMovieMinimal
+import com.gemma.popularmovies.data.network.MovieRemoteMediator
 import com.gemma.popularmovies.domain.model.Movie
 import com.gemma.popularmovies.domain.model.Provider
 import com.gemma.popularmovies.domain.model.Role
 import com.gemma.popularmovies.domain.model.Trailer
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 
 class FakeDataSource : MovieDataSource {
 
     private var fakeData = FakeData()
-
-    override suspend fun getPopularMovies(): Flow<List<Movie>> {
-        val movieList = fakeData.getMovieList()
-        return flow {
-            emit(movieList)
-        }
-    }
 
 
     override fun getFavoriteMovies(): Flow<List<Movie>> {
@@ -28,11 +26,11 @@ class FakeDataSource : MovieDataSource {
         }
     }
 
-    override suspend fun insertFreshPopularMovies(popularMovies: List<Movie>) {
+    override suspend fun refreshMovies(popularMovies: List<Movie>) {
         // not necessary for testing
     }
 
-    override suspend fun getFreshPopularMovies(): List<Movie> {
+    override suspend fun getFreshPopularMovies(page: Int): List<Movie> {
         return fakeData.getMovieList()
     }
 
@@ -154,5 +152,20 @@ class FakeDataSource : MovieDataSource {
     override suspend fun insertProviders(providerList: List<Provider?>) {
         // not necessary for testing
     }
+
+    @ExperimentalPagingApi
+    override suspend fun getPagedMovies(moviesRemoteMediator: MovieRemoteMediator): Flow<PagingData<CachedMovieMinimal>> {
+        // not necessary for testing as paging data comes straight from Room DB
+        return emptyFlow()
+    }
+
+    override suspend fun addFreshPopularMovies(movies: List<Movie>) {
+        // not necessary for testing
+    }
+
+    override suspend fun countMovies(): Int {
+        return fakeData.getMovieList().count()
+    }
+
 
 }

@@ -3,7 +3,8 @@ package com.gemma.popularmovies.data
 import com.gemma.popularmovies.domain.model.Movie
 import com.gemma.popularmovies.domain.model.Provider
 import com.gemma.popularmovies.domain.model.Role
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -35,18 +36,6 @@ class MoviesRepositoryImplTest {
     }
 
     @Test
-    fun getMostPopularMovies_returnsPopularMoviesFlow() = runBlocking {
-        // Before: get the movie list from the repository
-        var mostPopularMovieList = moviesRepository.getMostPopularMovies()
-        val movieList = mostPopularMovieList.first() // Returns the first item in the flow
-        // After: assert that the correct movie list is received
-        val fakeMovieList = fakeData.getMovieList()
-        assertEquals(fakeMovieList, movieList)
-        // let's unpack and check the first movie
-        assertEquals(fakeMovieList[0], movieList[0])
-    }
-
-    @Test
     fun getFavoriteMovies_returnsFavoriteMoviesFlow() = runBlocking {
         // Before: get the movie list from the repository
         var favoriteMovieList = moviesRepository.getFavoriteMovies()
@@ -58,21 +47,6 @@ class MoviesRepositoryImplTest {
     }
 
 
-    @Test
-    fun getMostPopularMovies_whenDataSourceIsEmpty() = runBlocking {
-        // Before: recreate the repository with an empty data source
-        val emptyDataSource: MovieDataSource = EmptyDataSource()
-        moviesRepository = MoviesRepositoryImpl(
-            emptyDataSource, remoteDataSource, dataRefreshManager
-        )
-        // get the movie list flow from the real repository
-        var mostPopularMovieList = moviesRepository.getMostPopularMovies()
-        val movieList = mostPopularMovieList.first() // Returns the first item in the flow
-        // After: assert that the correct movie list is received
-        val emptyMovieList = emptyList<Movie>()
-        assertEquals(emptyMovieList, movieList)
-        assertEquals(0, movieList.count())
-    }
 
     @Test
     fun getFullMovieData_returnsMovie() = runBlocking {
