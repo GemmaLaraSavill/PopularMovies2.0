@@ -30,7 +30,7 @@ class ProviderDaoAndroidTest {
     private lateinit var providerDao: ProviderDao
 
     // fake data
-    val movieId = 497698;
+    private val movieId = 497698
 
     @Before
     fun initDb() {
@@ -89,7 +89,7 @@ class ProviderDaoAndroidTest {
 
     @Test
     fun getMovieProvidersOnEmpty_returnCorrect(): Unit = runBlocking {
-        var providers = providerDao.getMovieProviders(movieId)
+        val providers = providerDao.getMovieProviders(movieId)
         Assert.assertEquals(providers.first(), emptyList<CachedProviderAggregate>())
         val emptyList = emptyList<CachedRoleAggregate>()
         providers.map {

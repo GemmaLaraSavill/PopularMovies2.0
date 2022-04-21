@@ -20,7 +20,7 @@ class FakeDataSource : MovieDataSource {
 
     override fun getFavoriteMovies(): Flow<List<Movie>> {
         val movieList = fakeData.getMovieList()
-        val favList = movieList.filter { it.favorite!! > 0 }
+        val favList = movieList.filter { it.favorite > 0 }
         return flow {
             emit(favList)
         }
@@ -64,10 +64,10 @@ class FakeDataSource : MovieDataSource {
     }
 
     override suspend fun toggleFavorite(movieId: Int) {
-        var movieFlow = getMovieById(movieId)
-        var movie = movieFlow.first()
+        val movieFlow = getMovieById(movieId)
+        val movie = movieFlow.first()
         if (movie?.favorite == 0) {
-            movie?.favorite = 1
+            movie.favorite = 1
         } else {
             movie?.favorite = 0
         }
@@ -86,7 +86,7 @@ class FakeDataSource : MovieDataSource {
 
     override suspend fun getFreshMovieCast(movieId: Int): List<Role?> {
         // cast for 566525 = Shang-Chi and the Legend of the Ten Rings
-        val ShangChiCastList = listOf<Role>(
+        return listOf(
             Role(
                 1489211,
                 566525,
@@ -109,7 +109,6 @@ class FakeDataSource : MovieDataSource {
                 "Katy Chen"
             )
         )
-        return ShangChiCastList
     }
 
     override suspend fun getMovieCast(movieId: Int): Flow<List<Role?>> {

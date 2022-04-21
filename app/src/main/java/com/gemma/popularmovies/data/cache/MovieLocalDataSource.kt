@@ -115,7 +115,7 @@ class MovieLocalDataSource @Inject constructor(
     override suspend fun getTrailer(movieId: Int): Flow<Trailer?> {
         // Not required for the local data source as the movie is extracted
         // in getMovieById() as a CachedMovieAggregate that holds movie and trailer
-        return emptyFlow();
+        return emptyFlow()
     }
 
     override suspend fun insertTrailer(movieId: Int, trailer: Trailer?) {

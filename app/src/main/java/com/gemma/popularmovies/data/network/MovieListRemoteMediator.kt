@@ -34,11 +34,11 @@ class MovieRemoteMediator @Inject constructor(
         } else if (loadType == LoadType.REFRESH && pageRequested == null) {
             val cachedMovieCount = movieLocalDataSource.countMovies()
             loadSize = NUM_PAGES_IN_CACHE * NUM_RESULTS_PER_PAGE
-            if (cachedMovieCount < loadSize) {
-                pageRequested = 1
+            pageRequested = if (cachedMovieCount < loadSize) {
+                1
             } else {
                 // don't want to trigger API call
-                pageRequested = null
+                null
             }
         } else {
             // don't want to trigger API call
@@ -49,7 +49,7 @@ class MovieRemoteMediator @Inject constructor(
             var endOfPaginationReached = false
             if (pageRequested != null) {
                 // get more movies from api service
-                var movieList: MutableList<Movie> = mutableListOf<Movie>()
+                val movieList: MutableList<Movie> = mutableListOf()
                 while (loadSize > 0) {
                     val moviePage = movieNetworkDataSource.getFreshPopularMovies(pageRequested)
                     movieList.addAll(moviePage)
@@ -91,10 +91,7 @@ class MovieRemoteMediator @Inject constructor(
      * Returns null if no data passed to Mediator
      */
     private fun getPageForLastItem(state: PagingState<Int, CachedMovieMinimal>): Int? {
-        return state.pages.lastOrNull() { it.data.isNotEmpty() }?.data?.lastOrNull()
-            ?.let { movie ->
-                movie.page
-            }
+        return state.pages.lastOrNull { it.data.isNotEmpty() }?.data?.lastOrNull()?.page
     }
 
 

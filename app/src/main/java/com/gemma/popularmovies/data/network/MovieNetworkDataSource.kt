@@ -1,7 +1,6 @@
 package com.gemma.popularmovies.data.network
 
 import android.content.Context
-import android.util.Log
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.PagingData
 import com.gemma.popularmovies.data.MovieDataSource
@@ -28,7 +27,7 @@ class MovieNetworkDataSource @Inject constructor(private val moviesApiService: M
      */
     override suspend fun getFreshPopularMovies(page: Int): List<Movie> {
         return if (NetworkConnectivityManager.isNetworkConnected(context)) {
-            var popularMovies: List<Movie> = moviesApiService.getPopularMovies(page).movieList.map {
+            val popularMovies: List<Movie> = moviesApiService.getPopularMovies(page).movieList.map {
                 it.toDomain(page)
             }
             popularMovies
@@ -39,7 +38,7 @@ class MovieNetworkDataSource @Inject constructor(private val moviesApiService: M
 
     override suspend fun getMovieById(movieId: Int): Flow<Movie?> {
         return if (NetworkConnectivityManager.isNetworkConnected(context)) {
-            var movieData = moviesApiService.getFullMovieData(movieId)
+            val movieData = moviesApiService.getFullMovieData(movieId)
             flow { emit(movieData.toDomain(0)) }
         } else {
             emptyFlow()
@@ -57,8 +56,8 @@ class MovieNetworkDataSource @Inject constructor(private val moviesApiService: M
             val videosPage: TrailersPageDto = moviesApiService.getVideos(movieId)
             val videos = videosPage.videoList
             val trailer: List<TrailerDto> = videos.filter {
-                it.type == "Trailer"
-                it.site == "YouTube"
+                it.type == "Trailer" &&
+                it.site == "YouTube" &&
                 it.official
             }.sortedBy { it.date }
             return if (trailer.count() > 0) {
@@ -77,13 +76,13 @@ class MovieNetworkDataSource @Inject constructor(private val moviesApiService: M
      * Load 10 artist roles for this movie from the API
      */
     override suspend fun getFreshMovieCast(movieId: Int): List<Role?> {
-        if (NetworkConnectivityManager.isNetworkConnected(context)) {
+        return if (NetworkConnectivityManager.isNetworkConnected(context)) {
             val cast = moviesApiService.getCredits(movieId).roleList.take(10).map {
                 it.toDomain(movieId)
             }
-            return cast
+            cast
         } else {
-            return emptyList()
+            emptyList()
         }
     }
 

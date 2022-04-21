@@ -10,12 +10,11 @@ import com.gemma.popularmovies.domain.model.Role
 import com.gemma.popularmovies.domain.model.Trailer
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow
-import kotlinx.coroutines.flow.flow
 
 class EmptyDataSource: MovieDataSource {
 
     private var fakeData = FakeData()
-    val fakeMovieList = mutableListOf<Movie>()
+    private val fakeMovieList = mutableListOf<Movie>()
 
     override fun getFavoriteMovies(): Flow<List<Movie>> {
         return emptyFlow()

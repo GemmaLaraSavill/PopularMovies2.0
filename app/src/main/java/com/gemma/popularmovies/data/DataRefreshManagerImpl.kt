@@ -2,18 +2,15 @@ package com.gemma.popularmovies.data
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.util.Log
 import androidx.preference.PreferenceManager
 import com.gemma.popularmovies.domain.repository.DataRefreshManager
-import java.text.SimpleDateFormat
-import java.util.*
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 /**
  * Checks if a data refresh is needed
  */
-class DataRefreshManagerImpl @Inject constructor(private val context: Context): DataRefreshManager {
+class DataRefreshManagerImpl @Inject constructor(context: Context): DataRefreshManager {
     
     private val daysToNextDataRefresh:Long = 7
     private val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
@@ -31,13 +28,13 @@ class DataRefreshManagerImpl @Inject constructor(private val context: Context): 
             differenceMs = System.currentTimeMillis() - lastRefreshDateInMs
         }
 
-        if (differenceMs > refreshInterval) {
+        return if (differenceMs > refreshInterval) {
             val editor: SharedPreferences.Editor = sharedPreferences.edit()
             editor.putLong(keyLastRefreshDateMs, System.currentTimeMillis())
             editor.apply()
-            return true
+            true
         } else {
-            return false
+            false
         }
     }
 

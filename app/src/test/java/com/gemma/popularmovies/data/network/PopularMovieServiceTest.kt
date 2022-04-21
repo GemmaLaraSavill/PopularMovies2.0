@@ -52,7 +52,7 @@ class PopularMovieApiTestUsingMockServer {
         )
 
         runBlocking {
-            var jsonResult: MoviesPageDto = popularMovieService.getPopularMovies(1)
+            val jsonResult: MoviesPageDto = popularMovieService.getPopularMovies(1)
             assertEquals(20, jsonResult.movieList.count())
         }
     }
@@ -65,15 +65,15 @@ class PopularMovieApiTestUsingMockServer {
                 .setResponseCode(200)
         )
         runBlocking {
-            var moviesFromApi: MoviesPageDto = popularMovieService.getPopularMovies(1)
+            val moviesFromApi: MoviesPageDto = popularMovieService.getPopularMovies(1)
             assertEquals(20, moviesFromApi.movieList.count())
-            assertEquals("Venom: Let There Be Carnage", moviesFromApi.movieList.get(0).title)
-            assertEquals("/xmbU4JTUm8rsdtn7Y3Fcm30GpeT.jpg", moviesFromApi.movieList.get(1).poster)
+            assertEquals("Venom: Let There Be Carnage", moviesFromApi.movieList[0].title)
+            assertEquals("/xmbU4JTUm8rsdtn7Y3Fcm30GpeT.jpg", moviesFromApi.movieList[1].poster)
         }
     }
 
     // TRAILERS
-    val testMovieId = 497698;
+    private val testMovieId = 497698
     private val testVideosJson = getJson("videos.json")
 
     @Test
@@ -85,7 +85,7 @@ class PopularMovieApiTestUsingMockServer {
         )
 
         runBlocking {
-            var jsonResult = popularMovieService.getVideos(testMovieId)
+            val jsonResult = popularMovieService.getVideos(testMovieId)
             assertEquals(42, jsonResult.videoList.count())
         }
     }
@@ -98,11 +98,11 @@ class PopularMovieApiTestUsingMockServer {
                 .setResponseCode(200)
         )
         runBlocking {
-            var trailersFromApi = popularMovieService.getVideos(566525)
+            val trailersFromApi = popularMovieService.getVideos(566525)
             println(trailersFromApi.toString())
             assertEquals(42, trailersFromApi.videoList.count())
-            assertEquals("61612683b865eb0061c2ee80", trailersFromApi.videoList.get(0).id)
-            assertEquals("Return", trailersFromApi.videoList.get(0).name)
+            assertEquals("61612683b865eb0061c2ee80", trailersFromApi.videoList[0].id)
+            assertEquals("Return", trailersFromApi.videoList[0].name)
         }
     }
 
@@ -118,8 +118,8 @@ class PopularMovieApiTestUsingMockServer {
         )
 
         runBlocking {
-            var creditsResult = popularMovieService.getCredits(testMovieId)
-            assertEquals(1245, creditsResult.roleList.get(0).artist_id)
+            val creditsResult = popularMovieService.getCredits(testMovieId)
+            assertEquals(1245, creditsResult.roleList[0].artist_id)
             assertEquals("Natasha Romanoff / Black Widow", creditsResult.roleList[0].character)
             assertEquals("Scarlett Johansson", creditsResult.roleList[0].name)
             assertEquals("/mODcczqQyKuphfFAoBZGhxgnNfs.jpg", creditsResult.roleList[0].image)
@@ -138,7 +138,7 @@ class PopularMovieApiTestUsingMockServer {
         )
 
         runBlocking {
-            var jsonResult = popularMovieService.getProviders(testMovieId)
+            val jsonResult = popularMovieService.getProviders(testMovieId)
 //            println(jsonResult.countries.country.link)
 //            println(jsonResult.countries.country.flatRateProviders.first().name)
             assertEquals("https://www.themoviedb.org/movie/497698-black-widow/watch?locale=ES", jsonResult.countries.country.link)

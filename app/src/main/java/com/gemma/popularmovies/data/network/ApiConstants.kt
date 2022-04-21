@@ -35,12 +35,9 @@ object ApiConstants {
     // url for loading the movie poster thumbs
     const val thumbUrl = "https://image.tmdb.org/t/p/"
     // different sizes available for these poster thumbs
-    const val thumbSize92 = "w92"
     const val thumbSize154 = "w154"
     const val thumbSize185 = "w185" // recommended
-    const val thumbSize342 = "w342"
     const val thumbSize500 = "w500"
-    const val thumbSize780 = "w780"
 
     // related to paging
     const val STARTING_PAGE_INDEX = 1

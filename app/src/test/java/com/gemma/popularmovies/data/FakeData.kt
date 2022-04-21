@@ -8,14 +8,14 @@ import com.gemma.popularmovies.domain.model.Trailer
 
 class FakeData {
 
-    val extraTrailer = Trailer(
+    private val extraTrailer = Trailer(
         566525, "60d52b3cc1606a007e706b2b",
         "8YjFbMbfXaQ",
         "YouTube",
         "Official Trailer"
     )
 
-    val extraMovie = Movie(
+    private val extraMovie = Movie(
         566525,
         "Shang-Chi and the Legend of the Ten Rings",
         "https://image.tmdb.org/t/p/w185/1BIoJGKbXjdFDAqUEiA2VHqkK1Z.jpg",
@@ -129,7 +129,7 @@ class FakeData {
 
     fun getNetworkMovieCast(): List<Role> {
         // cast for Shang-Chi and the Legend of the Ten Rings
-        val shangChiCastList = listOf<Role>(
+        return listOf(
             Role(
                 1489211,
                 566525,
@@ -152,7 +152,6 @@ class FakeData {
                 "Katy Chen"
             )
         )
-        return shangChiCastList
     }
 
     fun getProviderList(): List<Provider> {

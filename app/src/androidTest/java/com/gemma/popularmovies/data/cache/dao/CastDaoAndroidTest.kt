@@ -29,7 +29,7 @@ class CastDaoAndroidTest {
     private lateinit var castDao: CastDao
 
     // fake data
-    val movieId = 512195;
+    private val movieId = 512195
 
     @Before
     fun initDb() {
@@ -83,7 +83,7 @@ class CastDaoAndroidTest {
 
     @Test
     fun getMovieCastOnEmpty_returnCorrect(): Unit = runBlocking {
-        var cast = castDao.getMovieCast(movieId)
+        val cast = castDao.getMovieCast(movieId)
         Assert.assertEquals(cast.first(), emptyList<CachedRoleAggregate>())
         val emptyList = emptyList<CachedRoleAggregate>()
         cast.map {

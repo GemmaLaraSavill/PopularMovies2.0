@@ -23,7 +23,7 @@ class MoviesRepositoryImpl @Inject constructor(
     private val movieLocalDataSource: MovieDataSource,
     @NetworkDataSourceModule
     private val movieNetworkDataSource: MovieDataSource,
-    private val dataRefreshManagerImpl: DataRefreshManager
+    dataRefreshManagerImpl: DataRefreshManager
 ) : MoviesRepository {
 
     @ExperimentalPagingApi
@@ -61,7 +61,7 @@ class MoviesRepositoryImpl @Inject constructor(
     }
 
     override suspend fun getMovieById(movieId: Int): Flow<Movie?> {
-        var fullMovieDataFlow = movieLocalDataSource.getMovieById(movieId)
+        val fullMovieDataFlow = movieLocalDataSource.getMovieById(movieId)
             .distinctUntilChanged()
             .map {
                 if (it == null) {

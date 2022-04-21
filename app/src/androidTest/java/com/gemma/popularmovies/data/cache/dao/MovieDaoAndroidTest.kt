@@ -80,7 +80,7 @@ class MovieDaoAndroidTest {
         runBlocking {
             insertFakeMostPopularMovies()
             movieDao.toggleFavorite(1)
-            runBlocking() {
+            runBlocking {
                 movieDao.getFavoriteMovies().map {
                     it.map {
                         assertEquals(1, it.movie_id)
@@ -95,7 +95,7 @@ class MovieDaoAndroidTest {
         runBlocking {
             insertFakeMostPopularMovies()
             movieDao.toggleFavorite(1)
-            runBlocking() {
+            runBlocking {
                 movieDao.getFavoriteMovies().map {
                     assertEquals(isNull(), it)
                 }
@@ -111,7 +111,7 @@ class MovieDaoAndroidTest {
             runBlocking {
                 movieDao.deleteAllNonFavoriteMovies()
             }
-            var movies: Flow<List<CachedMovieMinimal>> = movieDao.getMostPopularMovies()
+            val movies: Flow<List<CachedMovieMinimal>> = movieDao.getMostPopularMovies()
             movies.map {
                 it.map {
                     assertEquals(1, it.movie_id)
@@ -140,7 +140,7 @@ class MovieDaoAndroidTest {
     @Test
     fun getMostPopularMovies_returnsCorrectMovies() {
         // insert data
-        var movieIds = insertFakeMostPopularMovies()
+        insertFakeMostPopularMovies()
         // expected data
         val popularMovieList = mutableListOf<CachedMovie>()
         popularMovieList.add(moviePopular1)
@@ -155,7 +155,7 @@ class MovieDaoAndroidTest {
     fun getFavoriteMovies_returnsCorrectMovies()  {
         runBlocking {
             // insert data
-            var movieMPids = insertFakeMostPopularMovies()
+            insertFakeMostPopularMovies()
 
             movieDao.toggleFavorite(1)
 
