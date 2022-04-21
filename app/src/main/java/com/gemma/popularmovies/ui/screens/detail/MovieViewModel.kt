@@ -69,7 +69,7 @@ class MovieViewModel @Inject constructor(private val getMovieUseCase: GetMovieDe
     fun getProviders(movieId: Int?): Flow<List<Provider?>> {
         if (movieId != null) {
             viewModelScope.launch {
-                providers = getMovieUseCase.getMovieProviders(movieId).onEach { it ->
+                providers = getMovieUseCase.getMovieProviders(movieId).onEach {
                     it.onEach {
                     }
                 }

@@ -87,7 +87,6 @@ fun PopularMoviesTopAppBar(
     onFavoritesActionClicked: (listDisplayed: ListType) -> Unit,
     scaffoldState: ScaffoldState, snackbarCoroutineScope: CoroutineScope
 ) {
-    var showMenu by remember { mutableStateOf(false) }
 
     TopAppBar(
         title = {
@@ -174,14 +173,14 @@ fun BodyContent(
 
 }
 
-@OptIn(ExperimentalFoundationApi::class)
+@OptIn(ExperimentalFoundationApi::class, ExperimentalCoilApi::class)
 @Composable
 fun PosterGrid(
     movies: LazyPagingItems<Movie>,
     scrollingListPosition: Int,
     onPosterClick: (Int, Int) -> Unit
 ) {
-    var savedListState = rememberLazyListState(scrollingListPosition)
+    val savedListState = rememberLazyListState(scrollingListPosition)
     LazyVerticalGrid(
         cells = GridCells.Fixed(2),
         state = savedListState,
@@ -250,7 +249,7 @@ fun PosterItem(
                 })
         )
     }
-    var imageState = posterPainter.state
+    val imageState = posterPainter.state
     if (imageState is ImagePainter.State.Loading) {
         Box(
             Modifier

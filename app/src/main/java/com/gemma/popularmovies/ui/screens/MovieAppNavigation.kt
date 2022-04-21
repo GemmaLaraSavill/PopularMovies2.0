@@ -16,7 +16,7 @@ import com.gemma.popularmovies.ui.screens.main.MovieListViewModel
 @ExperimentalMaterialApi
 @Composable
 fun MovieApp() {
-    var navController = rememberNavController()
+    val navController = rememberNavController()
     val listViewModel: MovieListViewModel = viewModel()
     val movieDetailViewModel: MovieViewModel = viewModel()
     NavHost(navController = navController, startDestination = MovieAppScreen.MainScreen.route) {

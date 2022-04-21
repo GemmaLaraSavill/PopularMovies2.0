@@ -2,7 +2,6 @@ package com.gemma.popularmovies.ui.screens.detail
 
 import android.content.Context
 import android.content.Intent
-import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -31,6 +30,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import coil.annotation.ExperimentalCoilApi
 import coil.compose.ImagePainter
 import coil.compose.rememberImagePainter
 import coil.size.OriginalSize
@@ -180,7 +180,7 @@ fun openYouTubeVideo(trailer: Trailer, context: Context) {
 
 @Composable
 fun CastList(cast: List<Role?>) {
-    Column() {
+    Column {
         Text(
             stringResource(id = R.string.cast),
             Modifier.padding(top = 16.dp, bottom = 8.dp, start = 16.dp),
@@ -196,6 +196,7 @@ fun CastList(cast: List<Role?>) {
     }
 }
 
+@OptIn(ExperimentalCoilApi::class)
 @Composable
 fun CharacterBadge(role: Role) {
     Card(
@@ -256,29 +257,29 @@ fun ProviderList(providers: List<Provider?>) {
                 it?.type == "flatrate"
             }
             if (flatRate.isNotEmpty()) {
-                providerCard(flatRate, R.string.flatrate)
+                ProviderCard(flatRate, R.string.flatrate)
             }
             val rent = providers.filter {
                 it?.type == "rent"
             }
             if (rent.isNotEmpty()) {
-                providerCard(rent, R.string.rent)
+                ProviderCard(rent, R.string.rent)
             }
             val buy = providers.filter {
                 it?.type == "buy"
             }
             if (buy.isNotEmpty()) {
-                providerCard(buy, R.string.buy)
+                ProviderCard(buy, R.string.buy)
             }
         } else {
-            providerCard(emptyList(), R.string.noProvidersFound)
+            ProviderCard(emptyList(), R.string.noProvidersFound)
         }
     }
 }
 
 @Composable
-fun providerCard(providers: List<Provider?>, listType: Int) {
-    Column() {
+fun ProviderCard(providers: List<Provider?>, listType: Int) {
+    Column {
         Text(
             stringResource(id = listType),
             Modifier.padding(top = 16.dp, bottom = 8.dp, start = 16.dp),
@@ -300,11 +301,12 @@ fun providerCard(providers: List<Provider?>, listType: Int) {
 
 @Composable
 fun ProviderBadge(prov: Provider) {
-    Column() {
+    Column {
         Text(prov.name.toString())
     }
 }
 
+@OptIn(ExperimentalCoilApi::class)
 @Composable
 fun BackDrop(movie: Movie?) {
     val backDropPainter =
@@ -316,7 +318,7 @@ fun BackDrop(movie: Movie?) {
         modifier = Modifier
             .fillMaxWidth()
     )
-    var imageState = backDropPainter.state
+    val imageState = backDropPainter.state
     if (imageState is ImagePainter.State.Loading) {
         Box(
             Modifier
@@ -386,7 +388,7 @@ fun TitleRow(movie: Movie?) {
 )
 @Composable
 private fun PreviewDetailScreenBody() {
-    PopularMoviesTheme() {
+    PopularMoviesTheme {
         DetailScreenBody(Modifier.padding(8.dp), testMovie, testCastList, emptyList())
     }
 }
@@ -452,7 +454,7 @@ val testMovie = Movie(
     1
 )
 
-val testCastList = listOf<Role>(
+val testCastList = listOf(
     Role(
         1337,
         566525,
