@@ -1,29 +1,38 @@
-# PopularMovies2.0
+# Popular Movies 2.0 (Not Actively Maintained) 
 
-:gear: **_work in progress_** 
+Welcome to Popular Movies 2.0! 
 
-:point_right: Please note that this is not a commercial app, this code is shared here for learning and technology demonstration purposes only.
+This Android app showcases popular movies using themoviedb.org API. 
 
-New version of my Android app that shows you popular movies using themoviedb.org API.
+It's designed for educational and demonstration purposes, not for commercial use.
 
-The first version [Popular Movies](https://github.com/GemmaLaraSavill/PopularMovies#readme), I developed as part of my Android Developer Nanodegree at Udacity back in 2016. 
+## Key Features
 
-So much has changed in Android development since then, so I decided to make a new one with all the [Modern Android Development](https://developer.android.com/series/mad-skills) "MAD" :wink: skills.
+**Modern Android Development:** This app utilizes the latest Android development practices, including:
+ - **Kotlin:** Leverages a modern and concise programming language for development.
+ - **Room:** Employs a powerful library for managing offline data storage with an internal SQLite database.
+- **Jetpack Compose:** Delivers a declarative and efficient way to build user interfaces.
+- **Kotlin Coroutines and Flow:** Enables asynchronous data fetching without blocking the UI thread.
+- **Hilt:** Implements dependency injection for simplified code management.
+- **MVVM Architecture:** Separates concerns for better maintainability.
+- **Jetpack Paging 3:** Optimizes data loading for large datasets.
 
-This app communicates with the Internet to get movie data from the themoviedb.org API. 
-When offline the data is provided from a local cache of data using an internal Room database.
+**Offline Support:** Users can access cached movie data even when offline.
 
-Main changes from the 2016 version:
+**Testing:** Unit tests ensure code quality and reliability (using AndroidJUnit4 and Okhttp3 MockWebServer).
 
-- programming language now Kotlin instead of Java
-- SQLite database now using Room
-- UI now using Jetpack Compose instead of XML layouts
-- still using threaded programming to take the load off the UI, but now using Kotlin coroutines and Flow instead of AsyncTask
-- now using dependency injection with Hilt
-- MVVM architecture
-- now using Jetpack Paging 3 library
-- Tests using AndroidJUnit4 and Okhttp3 MockWebServer
-- Working on more features, coming soon...
+## Background
+This project originated as [Popular Movies](https://github.com/GemmaLaraSavill/PopularMovies) for the **Udacity Android Developer Nanodegree in 2016**. 
+
+Recognizing the significant advancements in Android development, a new version was created leveraging the latest tools and best practices. 
+
+**Future Development:**
+
+While this repository is no longer actively maintained, the code serves as a valuable learning resource. 
+
+**Note:** This project is for demonstration and educational purposes only and not intended for commercial use.
+
+## Highlights
 
 Screenshot of one the Composables in the app in Android Studio Preview mode:
 ![Preview of Movie detail screen body](./github/movie-detail-screen-UI-compose-preview.png)
